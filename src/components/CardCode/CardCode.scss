@@ -1,0 +1,74 @@
+.card {
+  // width: 1000px;
+  height: 454px;
+  border-radius: 30px;
+  // background: #212121;
+  box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+  // margin: 4rem 2.5rem;
+  // background: rgb(17, 4, 134);
+  border-radius: 15px;
+  box-shadow: rgb(0, 0, 0, 0.7) 5px 10px 50px, rgb(0, 0, 0, 0.7) -5px 0px 250px;
+  // background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+  cursor: pointer;
+  transition: all 0.3sease-in-out;
+  overflow: hidden;
+  &.left {
+    text-align: left;
+    // width: 500px;
+    width: auto;
+    padding-left: 2rem;
+    // margin-left: 6rem;
+    p {
+      padding-left: 0;
+    }
+  }
+
+  &.code-card {
+    height: 280px;
+  }
+
+  .code {
+    font-size: 1.5rem;
+    padding: 2rem 4rem;
+    background-color: transparent;
+    span,
+    pre {
+      background-color: transparent;
+    }
+  }
+
+  // &.right {
+  //   display: flex;
+  //   justify-content: right;
+  //   align-items: center;
+  //   height: 800px;
+  // }
+
+  // h2 {
+  //   color: #fff;
+  //   font-size: 3rem;
+  //   font-weight: 400;
+  //   display: inline-block;
+  //   width: 50%;
+  // }
+
+  // p {
+  //   padding: 2rem;
+  //   text-align: left;
+  //   margin-right: 1rem;
+  // }
+
+  // .profile-container {
+  //   height: 800px;
+  //   position: relative;
+  //   overflow: hidden;
+  //   .profile {
+  //     height: 100%;
+  //     position: relative;
+  //     overflow: hidden;
+  //     border-radius: none;
+  //     border-top-right-radius: 30px;
+  //     border-bottom-right-radius: 30px;
+  //   }
+  // }
+}

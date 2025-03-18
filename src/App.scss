@@ -1,0 +1,67 @@
+@import "grid";
+@import url("https://fonts.googleapis.com/css?? family=Poppins: wght@300;400; 500; 600; 700; 800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+}
+
+.heebo {
+  font-family: "Heebo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  color: #fff;
+}
+
+.container-padding {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.btn {
+  border-style: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.btn-primary {
+  background-color: #d4372f;
+  color: #fff;
+}
+
+.btn-outline {
+  border: 2px solid #d4372f;
+  padding: 0.4rem 0.5rem;
+  text-align: center;
+}
+
+.grow {
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.5);
+    mask-image: none !important;
+    svg {
+      fill: "#07bdf0";
+    }
+  }
+}
+
+.card {
+  &.grow {
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

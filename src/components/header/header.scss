@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 1rem 6rem;
+  position: fixed;
+  width: 100%;
+  a {
+    margin: 1rem;
+  }
+  .profile-image-container {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+  }
+  .links-container {
+    align-items: center;
+    display: flex;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .btn-primary {
+    margin-left: 0.7rem;
+  }
+}
