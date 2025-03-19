@@ -1,10 +1,12 @@
-import "./header.scss";
+import "./Header.scss";
+import Switcher from "../Switcher/Switcher";
+
 const Header = () => {
   return (
     <nav className="navbar">
-      <div>
+      <div className="container-text-and-btn">
         <h3 className="heebo">Portfolio.</h3>
-        {/* <img src="profile.jpg" alt="" /> */}
+        <Switcher></Switcher>
       </div>
       <span className="links-container">
         <a>Home</a>

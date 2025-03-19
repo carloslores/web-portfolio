@@ -23,6 +23,15 @@
       border-radius: 50%;
     }
   }
+
+  .container-text-and-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .switch {
+      margin-left: 1rem;
+    }
+  }
   .links-container {
     align-items: center;
     display: flex;
@@ -34,5 +43,29 @@
 
   .btn-primary {
     margin-left: 0.7rem;
+  }
+}
+
+.light-mode {
+  .navbar {
+    background-color: #fff;
+    color: #1a1a1a;
+    .profile-image-container {
+      img {
+        border: 1px solid #1a1a1a;
+      }
+    }
+  }
+}
+
+.dark-mode {
+  .navbar {
+    background-color: #1a1a1a;
+    color: #fff;
+    .profile-image-container {
+      img {
+        border: 1px solid #fff;
+      }
+    }
   }
 }
