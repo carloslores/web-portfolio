@@ -139,19 +139,19 @@
 
 .light-mode {
   h1 {
-    color: #000;
+    color: #444;
   }
   h2 {
-    color: #000;
+    color: #444;
   }
   .welcome-section-container {
     .welcome-home-img .img-box .img-item {
-      background: #fff;
+      background-color: #e9f1f9;
       &::before,
       &::after {
         background: linear-gradient(
           to right,
-          rgb(255, 255, 255) 0%,
+          rgb(233 241 249) 0%,
           rgba(255, 255, 255, 0) 100%
         );
         content: "";
@@ -176,7 +176,7 @@
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 

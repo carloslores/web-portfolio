@@ -3,22 +3,22 @@ import { createContext, useContext, useState, useEffect } from "react";
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLightMode, setisLightMode] = useState(false);
 
   useEffect(() => {
-    if (isDarkMode) {
+    if (isLightMode) {
       document.body.classList.remove("dark-mode");
       document.body.classList.add("light-mode");
     } else {
       document.body.classList.remove("light-mode");
       document.body.classList.add("dark-mode");
     }
-  }, [isDarkMode]);
+  }, [isLightMode]);
 
-  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
+  const toggleDarkMode = () => setisLightMode((prev) => !prev);
 
   return (
-    <GlobalContext.Provider value={{ isDarkMode, toggleDarkMode }}>
+    <GlobalContext.Provider value={{ isLightMode, toggleDarkMode }}>
       {children}
     </GlobalContext.Provider>
   );
@@ -31,5 +31,3 @@ export const useGlobal = () => {
   }
   return context;
 };
-
-export default { GlobalProvider, useGlobal };

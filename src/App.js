@@ -1,11 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "./components/Header/Header";
 import "./App.scss";
 import Welcome from "./sections/welcome";
 import { GlobalProvider } from "./contexts/GlobalContext";
+import About from "./sections/about";
+import Projects from "./sections/projects";
 
 function App() {
   const hasRun = useRef(false);
+  const [navBg, setNavBg] = useState(false);
+
+  const changeNavBg = () => {
+    window.scrollY >= 100 ? setNavBg(true) : setNavBg(false);
+  };
 
   useEffect(() => {
     if (!hasRun.current) {
@@ -14,11 +21,23 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavBg);
+    return () => {
+      window.removeEventListener("scroll", changeNavBg);
+    };
+  }, []);
+
   return (
     <GlobalProvider>
       <div className="App">
-        <Header />
+        <div onScroll={changeNavBg}>
+          <Header scroll={navBg} />
+        </div>
+
         <Welcome />
+        <About />
+        <Projects />
       </div>
     </GlobalProvider>
   );

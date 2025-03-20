@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useGlobal } from "../../contexts/GlobalContext";
 
 const Switcher = () => {
-  const { isDarkMode, toggleDarkMode } = useGlobal();
+  const { toggleDarkMode } = useGlobal();
   return (
     <StyledWrapper>
       <label className="switch">

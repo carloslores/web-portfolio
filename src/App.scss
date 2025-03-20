@@ -21,10 +21,29 @@ body {
   &.dark-mode {
     background-color: #1a1a1a;
     color: #fff;
+    .btn-outline {
+      border: 2px solid #d4372f;
+    }
+    .btn-primary {
+      background-color: #d4372f;
+    }
   }
   &.light-mode {
-    background-color: #fff;
-    color: #000;
+    background-color: #e9f1f9;
+    color: #444;
+    .btn-outline {
+      border: 2px solid #444;
+    }
+    .btn-primary {
+      background-color: #fb837d;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .kGQUbf .slider {
+      background-color: #89c2ff;
+    }
+    .card {
+      background-color: #66a8d34d;
+    }
   }
 }
 
@@ -42,13 +61,12 @@ body {
 }
 
 .btn-primary {
-  background-color: #d4372f;
   color: #fff;
 }
 
 .btn-outline {
-  border: 2px solid #d4372f;
-  padding: 0.4rem 0.5rem;
+  padding: 0.4rem 0.4rem;
+  display: flex;
   text-align: center;
 }
 

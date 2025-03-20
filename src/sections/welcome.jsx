@@ -1,19 +1,23 @@
 import CardCode from "../components/CardCode/CardCode";
 import "./welcome.scss";
+import { useGlobal } from "../contexts/GlobalContext";
 
 const Welcome = () => {
+  const { isLightMode } = useGlobal();
+
   return (
     <div className="container container-padding">
       <div className="welcome-section-container row">
         <div className="col-6 d-flex align-items-center">
           <div className="left">
-            <h1>Carlos Lores</h1>
-            <h2>I'm a Web Developer</h2>
+            <h1>Meet Carlos Lores,</h1>
+            <h2>Web Developer</h2>
 
             <p>
               As a skilled web developer, I am passionate about creating clean,
               efficient
             </p>
+
             <div className="hero-contact-container d-flex">
               <button className="btn btn-primary">Explore My Work</button>
               <div className="icons">
@@ -21,13 +25,14 @@ const Welcome = () => {
                   className="btn btn-outline grow"
                   href="https://github.com/carloslores/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
                     height="30"
                     viewBox="0 0 24 24"
-                    style={{ fill: "#d4372f" }}
+                    style={{ fill: `${isLightMode ? "#444" : "#d4372f"}` }}
                   >
                     <path
                       fillRule="evenodd"
@@ -40,13 +45,14 @@ const Welcome = () => {
                   className="btn btn-outline grow"
                   href="https://www.linkedin.com/in/carlos-lores-h/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
                     height="30"
                     viewBox="0 0 24 24"
-                    style={{ fill: "#d4372f" }}
+                    style={{ fill: `${isLightMode ? "#000" : "#d4372f"}` }}
                   >
                     <circle cx="4.983" cy="5.009" r="2.188"></circle>
                     <path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"></path>
@@ -54,10 +60,12 @@ const Welcome = () => {
                 </a>
               </div>
             </div>
+
             <CardCode rigth={true}></CardCode>
             <CardCode left={true}></CardCode>
           </div>
         </div>
+
         <div className="col-6 d-flex align-items-center">
           <div className="welcome-home-img">
             <div className="img-box">

@@ -1,9 +1,10 @@
 import "./Header.scss";
 import Switcher from "../Switcher/Switcher";
 
-const Header = () => {
+const Header = (params) => {
+  const { scroll } = params;
   return (
-    <nav className="navbar">
+    <nav className={`navbar${scroll ? " blur" : ""}`}>
       <div className="container-text-and-btn">
         <h3 className="heebo">Portfolio.</h3>
         <Switcher></Switcher>
