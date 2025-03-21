@@ -79,27 +79,97 @@ const About = () => {
           </div>
           <div className="col-6">
             <div className="view-onscroll" ref={containerRef}>
+              <img className="animate" src="angular.svg" alt="" />
               <img className="animate" src="reactjs.svg" alt="" />
               <img className="animate" src="redux.svg" alt="" />
-              <img className="animate" src="angular.svg" alt="" />
-              <img className="animate" src="html-5.svg" alt="" />
+
               <img className="animate" src="typescript.svg" alt="" />
               <img className="animate" src="js.svg" alt="" />
+              <img className="animate" src="html-5.svg" alt="" />
+              <img className="animate" src="css.svg" alt="" />
               <img className="animate" src="scss.svg" alt="" />
+              <img className="animate" src="node-js.svg" alt="" />
+              <img className="animate" src="mongodb.svg" alt="" />
             </div>
           </div>
         </div>
 
-        <div className="col-6">
-          <p>
-            Hola, soy Carlos Lores, desarrollador frontend con experiencia en la
-            creación de interfaces interactivas y optimizadas. Me especializo en
-            [React/Vue, CSS moderno, animaciones] y disfruto trabajar en
-            proyectos donde el diseño y la funcionalidad van de la mano. Creo en
-            escribir código limpio, accesible y eficiente. Cuando no estoy
-            programando, me encanta [hobby o interés relacionado]. ¿Tienes un
-            proyecto en mente? ¡Conversemos!
-          </p>
+        <div className="col-6"></div>
+      </div>
+      <div class="container laptop-container">
+        <div class="laptop">
+          <div class="laptop__screen">
+            <div class="laptop__frame"></div>
+            <div class="laptop__display">
+              {/* <svg
+                class="waves"
+                preserveAspectRatio="none"
+                viewBox="0 0 1920 1080"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fill="#006db0" d="M0 0h1920v1080H0z" />
+                <path
+                  d="M0 1080V180c125-6 250-12 344 3s158 51 271 45 274-54 374-68 138 6 240 10 268-7 394-8 211 9 297 18v900Z"
+                  fill="#2890cc"
+                />
+                <path
+                  d="M0 1080V360c122-2 243-4 351 19s201 71 283 47 153-120 275-129 294 69 401 75 147-62 238-76 231 25 372 64v720Z"
+                  fill="#b9d1f3"
+                />
+                <path
+                  d="M0 1080V540c91 20 183 41 300 37s261-31 376-58 201-54 309-30 239 98 353 114 211-28 305-48 186-18 277-15v540Z"
+                  fill="#faa243"
+                />
+                <path
+                  d="M0 1080V720c97 10 193 19 311 17s257-17 355-14 154 24 265 35 278 12 394-10 183-67 274-76 206 20 321 48v360Z"
+                  fill="#fa535a"
+                />
+                <path
+                  d="M0 1080V900c94-24 187-48 314-55s287 3 383 26 129 60 215 46 224-78 347-82 232 52 340 73 214 6 321-8v180Z"
+                  fill="#9e3384"
+                />
+              </svg> */}
+              <div class="headlines">
+                <div className="clients">
+                  <img src="lexus.svg" alt="" />
+                  <img src="toyota.svg" alt="" />
+                  <img src="Logo_Corte_Ingles.svg" alt="" />
+                  <img src="mutua.jpg" alt="" />
+                  <img id="telefonica-logo" src="telefonica-5.svg" alt="" />
+                </div>
+                <div className="text-content">
+                  <h3 className="title">Hola, soy Carlos Lores</h3>
+                  <p className="text-laptop">
+                    desarrollador frontend con experiencia en la creación de
+                    interfaces interactivas y optimizadas. Me especializo en
+                    [React/Vue, CSS moderno, animaciones] y disfruto trabajar en
+                    proyectos donde el diseño y la funcionalidad van de la mano.
+                    Creo en escribir código limpio, accesible y eficiente.
+                    Cuando no estoy programando, me encanta [hobby o interés
+                    relacionado]. ¿Tienes un proyecto en mente? ¡Conversemos!
+                  </p>
+                  <button className="btn btn-primary">Hire</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop__controls">
+            <div class="laptop__keyboard"></div>
+            <div class="laptop__touchpad"></div>
+          </div>
+          <div class="laptop__depth"></div>
+          <div class="laptop__shadow"></div>
+          <div id="smartphone">
+            <div id="phone-wrapper" class="phone-wrapper new-iphone">
+              <img
+                class="active"
+                id="new-iphone-frame"
+                src="new-iphone-mock.png"
+                alt=""
+              />
+              <div className="content"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
