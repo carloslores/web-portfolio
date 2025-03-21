@@ -10,9 +10,9 @@ const Header = (params) => {
         <Switcher></Switcher>
       </div>
       <span className="links-container">
-        <a>Home</a>
-        <a>About</a>
-        <a>Projects</a>
+        <a href="#welcome">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
         <a>Contact</a>
         <button className="btn btn-primary">Hire</button>
       </span>

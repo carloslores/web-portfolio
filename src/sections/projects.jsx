@@ -1,7 +1,11 @@
 import React from "react";
 
 const Projects = () => {
-  return <div style={{ height: "100vh" }}>projects</div>;
+  return (
+    <section id="projects" style={{ height: "100vh" }}>
+      projects
+    </section>
+  );
 };
 
 export default Projects;

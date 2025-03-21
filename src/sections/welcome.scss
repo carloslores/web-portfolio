@@ -74,6 +74,38 @@
     animation-delay: -5s;
   }
 
+  .animate-text {
+    position: relative;
+    color: #252839;
+    -webkit-text-stroke: 1px #383d52;
+    margin-left: 1rem;
+  }
+  .animate-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: rgb(219, 203, 76);
+    -webkit-text-stroke: 0vw #383d52;
+    border-right: 2px solid rgb(219, 203, 76);
+    overflow: hidden;
+    animation: animate-text 3s linear infinite;
+  }
+
+  @keyframes animate-text {
+    0%,
+    10%,
+    100% {
+      width: 0;
+    }
+    70%,
+    90% {
+      width: 100%;
+    }
+  }
+
   @keyframes rotate-border {
     100% {
       transform: rotate(360deg);
@@ -112,7 +144,6 @@
   text-align: left;
   // width: 500px;
   width: auto;
-  padding-left: 2rem;
   // margin-left: 6rem;
   p {
     padding-left: 0;
@@ -189,4 +220,24 @@ p {
   padding: 2rem;
   text-align: left;
   margin-right: 1rem;
+}
+
+.custom-shape-divider-bottom-1742587432 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1742587432 svg {
+  position: relative;
+  display: block;
+  width: calc(132% + 1.3px);
+  height: 126px;
+}
+
+.custom-shape-divider-bottom-1742587432 .shape-fill {
+  fill: rgb(107 41 35 / 79%);
 }

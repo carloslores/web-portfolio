@@ -76,7 +76,7 @@ const StyledWrapper = styled.div`
   }
   .rigth-absolute {
     left: 27%;
-    top: 15%;
+    top: 10%;
   }
 
   .tools {

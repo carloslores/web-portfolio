@@ -30,7 +30,7 @@ function App() {
 
   return (
     <GlobalProvider>
-      <div className="App">
+      <main className="App">
         <div onScroll={changeNavBg}>
           <Header scroll={navBg} />
         </div>
@@ -38,7 +38,7 @@ function App() {
         <Welcome />
         <About />
         <Projects />
-      </div>
+      </main>
     </GlobalProvider>
   );
 }

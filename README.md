@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Mi Portafolio Web - Carlos Lores
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es mi portafolio personal desarrollado con React.js. Incluye información sobre mí, mis proyectos, habilidades y formas de contacto. El diseño es completamente responsive y cuenta con dark mode y light mode.
+
+## Instalar dependencias
+
+### `npm install`
 
 ## Available Scripts
 
