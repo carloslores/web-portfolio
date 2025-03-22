@@ -37,8 +37,9 @@ function App() {
         </div>
 
         <Welcome />
-        <Timeline />
         <About />
+        <Timeline />
+
         <Projects />
       </main>
     </GlobalProvider>

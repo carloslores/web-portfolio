@@ -27,7 +27,7 @@ const Timeline = () => {
   return (
     <section id="timeline">
       <div className="p-relative">
-        <div className="custom-shape-divider-top-1742587535">
+        <div className="custom-shape-divider-top-1742655403">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
@@ -49,27 +49,21 @@ const Timeline = () => {
 
               <ul className="timeline">
                 <li className="event" data-date="2011">
-                  <h3>Registration</h3>
-                  <p>
-                    Get here on time, it's first come first serve. Be late, get
-                    turned away.
-                  </p>
+                  <h3>Graduation</h3>
+                  <p>Bachelor of Fine Arts</p>
                 </li>
                 <li className="event" data-date="2019">
-                  <h3>Opening Ceremony</h3>
-                  <p>
-                    Get ready for an exciting event, this will kick off in
-                    amazing fashion with MOP & Busta Rhymes as an opening show.
-                  </p>
+                  <h3>Bootcamp</h3>
+                  <p>Iron Hack graduated</p>
                 </li>
-                <li className="event" data-date="5:00 - 8:00pm">
-                  <h3>Main Event</h3>
+                <li className="event" data-date="2019">
+                  <h3>First frontend developer job</h3>
                   <p>
                     This is where it all goes down. You will compete head to
                     head with your friends and rivals. Get ready!
                   </p>
                 </li>
-                <li className="event" data-date="8:30 - 9:30pm">
+                <li className="event" data-date="2021">
                   <h3>Closing Ceremony</h3>
                   <p>
                     See how is the victor and who are the losers. The big stage
@@ -79,7 +73,7 @@ const Timeline = () => {
               </ul>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-6 align-items-center">
             <div className="view-onscroll" ref={containerRef}>
               <img className="animate" src="angular.svg" alt="" />
               <img className="animate" src="reactjs.svg" alt="" />

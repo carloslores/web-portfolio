@@ -4,7 +4,7 @@
 
 .laptop-container {
   background: linear-gradient(to left top, #9d1231, #ff9e7a);
-  min-height: 110vh;
+  min-height: 120vh;
   width: 100%;
   margin: 5rem auto;
   position: relative;
@@ -265,25 +265,30 @@
   opacity: 1;
 }
 
-.custom-shape-divider-top-1742587535 {
+.custom-shape-divider-bottom-1742654989 {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  transform: rotate(180deg);
 }
 
-.custom-shape-divider-top-1742587535 svg {
+.custom-shape-divider-bottom-1742654989 svg {
   position: relative;
   display: block;
-  width: calc(164% + 1.3px);
-  height: 100vh;
+  width: calc(300% + 1.3px);
+  height: 161px;
 }
 
-.custom-shape-divider-top-1742587535 .shape-fill {
-  fill: rgb(107 41 35 / 79%);
+.custom-shape-divider-bottom-1742654989 .shape-fill {
+  fill: #1a1a1a;
+}
+
+.light-mode {
+  .custom-shape-divider-bottom-1742654989 .shape-fill {
+    fill: #e9f1f9;
+  }
 }
 
 @keyframes appear {
@@ -584,4 +589,10 @@
 
 .custom-shape-divider-top-1742647149 .shape-fill {
   fill: #1a1a1a;
+}
+
+.light-mode {
+  .custom-shape-divider-top-1742647149 .shape-fill {
+    fill: #e9f1f9;
+  }
 }
