@@ -222,22 +222,23 @@ p {
   margin-right: 1rem;
 }
 
-.custom-shape-divider-bottom-1742587432 {
+.custom-shape-divider-bottom-1742646822 {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   overflow: hidden;
   line-height: 0;
+  transform: rotate(180deg);
 }
 
-.custom-shape-divider-bottom-1742587432 svg {
+.custom-shape-divider-bottom-1742646822 svg {
   position: relative;
   display: block;
-  width: calc(132% + 1.3px);
-  height: 126px;
+  width: calc(100% + 1.3px);
+  height: 115px;
 }
 
-.custom-shape-divider-bottom-1742587432 .shape-fill {
-  fill: rgb(107 41 35 / 79%);
+.custom-shape-divider-bottom-1742646822 .shape-fill {
+  fill: #6b2923c9;
 }

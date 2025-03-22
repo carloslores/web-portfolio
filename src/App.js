@@ -5,6 +5,7 @@ import Welcome from "./sections/welcome";
 import { GlobalProvider } from "./contexts/GlobalContext";
 import About from "./sections/about";
 import Projects from "./sections/projects";
+import Timeline from "./sections/timeline";
 
 function App() {
   const hasRun = useRef(false);
@@ -36,6 +37,7 @@ function App() {
         </div>
 
         <Welcome />
+        <Timeline />
         <About />
         <Projects />
       </main>

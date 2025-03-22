@@ -1,31 +1,151 @@
 import { useEffect, useRef } from "react";
 import "./about.scss";
 
+import React from "react";
+import styled from "styled-components";
+
+const CardButtons = () => {
+  return (
+    <StyledWrapper
+      style={{ position: "absolute", bottom: "5%", right: "9%", zIndex: "8" }}
+    >
+      <div className="card-button">
+        <a>
+          <svg className="socialSvg" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+          </svg>
+          <svg className="socialSvg" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+          </svg>
+        </a>
+        <a>
+          <svg className="socialSvg" viewBox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+          </svg>
+          <svg className="socialSvg" viewBox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+          </svg>
+        </a>
+        <a>
+          <svg className="socialSvg" viewBox="0 0 448 512">
+            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+          </svg>
+          <svg className="socialSvg" viewBox="0 0 448 512">
+            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+          </svg>
+        </a>
+        <a>
+          <svg className="socialSvg" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+          </svg>
+          <svg className="socialSvg" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+          </svg>
+        </a>
+      </div>
+    </StyledWrapper>
+  );
+};
+
+const StyledWrapper = styled.div`
+  /* OOP CSS CODE from Zaeni Ahmad */
+
+  .card-button {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(49, 49, 49, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 12px;
+    gap: 4px;
+    overflow: hidden;
+    border-radius: 27px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+  }
+
+  /* for all social containers*/
+  .card-button a {
+    width: 52px;
+    height: 52px;
+    background-color: rgba(117, 117, 117, 0);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+
+  .card-button a:hover {
+    transform: scale(1.2);
+    border-radius: 15px;
+  }
+  /*instagram*/
+  .card-button a:nth-child(1):hover {
+    background-color: #d62976;
+  }
+  /* twitter*/
+  .card-button a:nth-child(2):hover {
+    background-color: #00acee;
+  }
+  /* linkdin*/
+  .card-button a:nth-child(3):hover {
+    background-color: #0072b1;
+  }
+  /* Whatsapp*/
+  .card-button a:nth-child(4):hover {
+    background-color: #25d366;
+  }
+
+  .card-button a:active {
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+  }
+
+  /*first-child*/
+  .card-button a svg:first-child {
+    display: flex;
+    scale: 1.3;
+    position: absolute;
+    width: 17px;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 0.4s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+
+  .card-button a svg:first-child path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .card-button a:hover svg:first-child {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  /*last-child*/
+  .card-button a svg:last-child {
+    display: flex;
+    position: absolute;
+    width: 17px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  .card-button a svg:last-child path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .card-button a:hover svg:last-child {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+`;
+
 const About = () => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    const elements = containerRef.current.querySelectorAll(".animate");
-    elements.forEach((el) => observer.observe(el));
-
-    return () => elements.forEach((el) => observer.unobserve(el));
-  }, []);
-
   return (
     <section id="about" style={{ height: "100vh" }}>
-      <div className="p-relative">
-        <div class="custom-shape-divider-top-1742587535">
+      <div className="p-relative wave-container">
+        <div class="custom-shape-divider-top-1742647149">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
@@ -39,135 +159,94 @@ const About = () => {
           </svg>
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-6">
-            <div id="content">
-              {/* <h1>Timeline Concept</h1> */}
-
-              <ul className="timeline">
-                <li className="event" data-date="2011">
-                  <h3>Registration</h3>
-                  <p>
-                    Get here on time, it's first come first serve. Be late, get
-                    turned away.
-                  </p>
-                </li>
-                <li className="event" data-date="2019">
-                  <h3>Opening Ceremony</h3>
-                  <p>
-                    Get ready for an exciting event, this will kick off in
-                    amazing fashion with MOP & Busta Rhymes as an opening show.
-                  </p>
-                </li>
-                <li className="event" data-date="5:00 - 8:00pm">
-                  <h3>Main Event</h3>
-                  <p>
-                    This is where it all goes down. You will compete head to
-                    head with your friends and rivals. Get ready!
-                  </p>
-                </li>
-                <li className="event" data-date="8:30 - 9:30pm">
-                  <h3>Closing Ceremony</h3>
-                  <p>
-                    See how is the victor and who are the losers. The big stage
-                    is where the winners bask in their own glory.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-6">
-            <div className="view-onscroll" ref={containerRef}>
-              <img className="animate" src="angular.svg" alt="" />
-              <img className="animate" src="reactjs.svg" alt="" />
-              <img className="animate" src="redux.svg" alt="" />
-
-              <img className="animate" src="typescript.svg" alt="" />
-              <img className="animate" src="js.svg" alt="" />
-              <img className="animate" src="html-5.svg" alt="" />
-              <img className="animate" src="css.svg" alt="" />
-              <img className="animate" src="scss.svg" alt="" />
-              <img className="animate" src="node-js.svg" alt="" />
-              <img className="animate" src="mongodb.svg" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6"></div>
-      </div>
-      <div class="container laptop-container">
-        <div class="laptop">
-          <div class="laptop__screen">
-            <div class="laptop__frame"></div>
-            <div class="laptop__display">
-              {/* <svg
-                class="waves"
-                preserveAspectRatio="none"
-                viewBox="0 0 1920 1080"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path fill="#006db0" d="M0 0h1920v1080H0z" />
-                <path
-                  d="M0 1080V180c125-6 250-12 344 3s158 51 271 45 274-54 374-68 138 6 240 10 268-7 394-8 211 9 297 18v900Z"
-                  fill="#2890cc"
-                />
-                <path
-                  d="M0 1080V360c122-2 243-4 351 19s201 71 283 47 153-120 275-129 294 69 401 75 147-62 238-76 231 25 372 64v720Z"
-                  fill="#b9d1f3"
-                />
-                <path
-                  d="M0 1080V540c91 20 183 41 300 37s261-31 376-58 201-54 309-30 239 98 353 114 211-28 305-48 186-18 277-15v540Z"
-                  fill="#faa243"
-                />
-                <path
-                  d="M0 1080V720c97 10 193 19 311 17s257-17 355-14 154 24 265 35 278 12 394-10 183-67 274-76 206 20 321 48v360Z"
-                  fill="#fa535a"
-                />
-                <path
-                  d="M0 1080V900c94-24 187-48 314-55s287 3 383 26 129 60 215 46 224-78 347-82 232 52 340 73 214 6 321-8v180Z"
-                  fill="#9e3384"
-                />
-              </svg> */}
-              <div class="headlines">
-                <div className="clients">
-                  <img src="lexus.svg" alt="" />
-                  <img src="toyota.svg" alt="" />
-                  <img src="Logo_Corte_Ingles.svg" alt="" />
-                  <img src="mutua.jpg" alt="" />
-                  <img id="telefonica-logo" src="telefonica-5.svg" alt="" />
+      <div className="container laptop-container">
+        <div className="laptop">
+          <div className="laptop__screen">
+            <div className="laptop__frame"></div>
+            <div className="laptop__display">
+              <div className="headlines">
+                <div
+                  className="clients"
+                  style={{
+                    "--quantity": 5,
+                    "--width": "60px",
+                    "--height": "70px",
+                  }}
+                >
+                  <div className="list">
+                    <div className="item" style={{ "--position": 1 }}>
+                      <img src="lexus.svg" alt="" />
+                    </div>
+                    <div className="item" style={{ "--position": 2 }}>
+                      <img src="toyota.svg" alt="" />
+                    </div>
+                    <div className="item" style={{ "--position": 3 }}>
+                      <img src="Logo_Corte_Ingles.svg" alt="" />
+                    </div>
+                    <div className="item" style={{ "--position": 4 }}>
+                      {" "}
+                      <img src="mutua.jpg" alt="" />
+                    </div>
+                    <div className="item" style={{ "--position": 5 }}>
+                      <img id="telefonica-logo" src="telefonica-5.svg" alt="" />
+                    </div>
+                  </div>
                 </div>
-                <div className="text-content">
-                  <h3 className="title">Hola, soy Carlos Lores</h3>
-                  <p className="text-laptop">
-                    desarrollador frontend con experiencia en la creación de
-                    interfaces interactivas y optimizadas. Me especializo en
-                    [React/Vue, CSS moderno, animaciones] y disfruto trabajar en
-                    proyectos donde el diseño y la funcionalidad van de la mano.
-                    Creo en escribir código limpio, accesible y eficiente.
-                    Cuando no estoy programando, me encanta [hobby o interés
-                    relacionado]. ¿Tienes un proyecto en mente? ¡Conversemos!
-                  </p>
-                  <button className="btn btn-primary">Hire</button>
+                <div className="main-content">
+                  <div className="text-content">
+                    <h3 className="title">Hola, soy Carlos Lores</h3>
+                    <p className="text-laptop">
+                      un desarrollador frontend apasionado por construir
+                      interfaces atractivas y funcionales. Me especializo en
+                      [tecnologías clave] y disfruto convertir ideas en
+                      experiencias digitales. Si buscas alguien que combine
+                      diseño y código, ¡hablemos!"
+                    </p>
+                    <button className="btn btn-primary">Download CV</button>
+                  </div>
+                  <div className="cards-container">
+                    <img
+                      className="profile-suit"
+                      src="profile-suit.jpg"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="laptop__controls">
-            <div class="laptop__keyboard"></div>
-            <div class="laptop__touchpad"></div>
+
+          <div className="laptop__controls">
+            <div className="laptop__keyboard"></div>
+            <div className="laptop__touchpad"></div>
           </div>
-          <div class="laptop__depth"></div>
-          <div class="laptop__shadow"></div>
+          <div className="laptop__depth"></div>
+          <div className="laptop__shadow"></div>
           <div id="smartphone">
-            <div id="phone-wrapper" class="phone-wrapper new-iphone">
+            <div id="phone-wrapper" className="phone-wrapper new-iphone">
               <img
-                class="active"
+                className="active"
                 id="new-iphone-frame"
                 src="new-iphone-mock.png"
                 alt=""
               />
-              <div className="content"></div>
+              <div className="content-display">
+                <div className="cards-container">
+                  <div className="light-card">
+                    <img src="badge.png" alt="" />
+                    <h3>Experience</h3>
+                    <h4>5+ years</h4>
+                    <h4>Frontend Development</h4>
+                  </div>
+                  <div className="light-card">
+                    <img src="friends.png" alt="" />
+                    <h3>Education</h3>
+                    <h4>Bachelor of Fine Arts</h4>
+                    <h4> Iron Hack graduated</h4>
+                  </div>
+                </div>
+              </div>
+              <CardButtons></CardButtons>
             </div>
           </div>
         </div>
