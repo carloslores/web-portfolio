@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap");
+
 .wave-container {
   z-index: 8;
 }
@@ -163,6 +165,7 @@
       .profile-suit {
         height: 254px;
         border-radius: 20px;
+        width: auto;
       }
     }
   }
@@ -241,14 +244,24 @@
   // left: 50%;
   top: 10%;
   // transform: translate(-50%, -50%);
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding: 1rem 0;
+  // font-family: "Fascinate Inline", system-ui;
+  // font-weight: 400;
+  // font-style: normal;
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 .text-laptop {
   color: #000;
   line-height: 1.5;
   padding: 0;
   margin-right: 3rem;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 .author {
   position: absolute;
