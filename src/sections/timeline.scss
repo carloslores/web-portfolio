@@ -1,6 +1,5 @@
 #timeline {
   padding-top: 12rem;
-  background: linear-gradient(to left top, #9d1231, #ff9e7a);
   height: 120vh;
   strong {
     font-weight: 600;
@@ -85,44 +84,52 @@
   }
   .view-onscroll {
     padding-top: 2rem;
+
     .animate {
-      width: 24%;
-      padding: 2rem;
-      -webkit-animation: bounce-in-top 1.1s both;
-      animation: bounce-in-top 1.1s both;
-      animation-play-state: paused;
+      // -webkit-animation: bounce-in-top 1.1s both;
+      // animation: bounce-in-top 1.1s both;
+      // animation-play-state: paused;
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateX(-100%);
+      // transition: all 1s;
       &.visible {
-        animation-play-state: running; /* Se activa cuando el elemento es visible */
+        // animation-play-state: running; /* Se activa cuando el elemento es visible */
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+        // transition: all 1s;
       }
       &:nth-child(1) {
-        animation-delay: 0s;
+        // animation-delay: 0s;
+        transition: 0.2s;
       }
       &:nth-child(2) {
-        animation-delay: 0.2s;
+        transition: 0.4s;
       }
       &:nth-child(3) {
-        animation-delay: 0.4s;
+        transition: 0.6s;
       }
       &:nth-child(4) {
-        animation-delay: 0.6s;
+        transition: 0.8s;
       }
       &:nth-child(5) {
-        animation-delay: 0.8s;
+        transition: 1s;
       }
       &:nth-child(6) {
-        animation-delay: 1s;
+        transition: 1.2s;
       }
       &:nth-child(7) {
-        animation-delay: 1.2s;
+        transition: 1.4s;
       }
       &:nth-child(8) {
-        animation-delay: 1.4s;
+        transition: 1.6s;
       }
       &:nth-child(9) {
-        animation-delay: 1.6s;
+        transition: 1.8s;
       }
       &:nth-child(10) {
-        animation-delay: 1.8s;
+        transition: 2s;
       }
     }
   }
@@ -132,6 +139,21 @@
       .animate {
         width: 22%;
       }
+    }
+  }
+  .icon-tech {
+    text-align: center;
+    background: linear-gradient(135deg, #393f46 0%, #202328 50%) no-repeat;
+    background-clip: padding-box;
+    border-color: transparent;
+    border-radius: 1rem;
+    width: 20%;
+    padding: 2rem;
+    margin: 0.5rem;
+    &:hover {
+      background-color: rgba(138, 147, 158, 0.2);
+      border-color: #fff;
+      border: 1px solid;
     }
   }
 }
@@ -161,4 +183,24 @@
   .custom-shape-divider-top-1742655403 .shape-fill {
     fill: #e9f1f9;
   }
+}
+
+.custom-shape-divider-bottom-1743263641 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1743263641 svg {
+  position: relative;
+  display: block;
+  width: calc(187% + 1.3px);
+  height: 110px;
+}
+
+.custom-shape-divider-bottom-1743263641 .shape-fill {
+  fill: #1a1a1a;
 }

@@ -1,94 +1,189 @@
+:root {
+  --brand-color: hsl(46, 100%, 50%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --font-title: "Montserrat", sans-serif;
+  --font-text: "Lato", sans-serif;
+  --surface-color: #fff;
+  --curve: 40;
+}
 #projects {
-  /* From Uiverse.io by akshat-patel28 */
-  .card-project {
+  background: linear-gradient(to left top, #9d1231, #ff9e7a);
+  min-height: 120vh;
+  .card-container {
+    padding: 3rem 0;
+  }
+  .card {
     position: relative;
-    width: 350px;
-    height: 180px;
-    box-sizing: border-box;
-    background-color: #212121;
-    border: 5px solid #222;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-      rgba(0, 0, 0, 0.23) 0px 6px 6px, inset rgba(0, 0, 0, 0.19) 0px 10px 20px,
-      inset rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    transition: all ease-in-out 0.3s;
+    display: block;
+    height: 463px;
+    border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
+    text-decoration: none;
+    width: 558px;
   }
 
-  .card-project:hover {
-    box-shadow: rgba(193, 44, 223, 0.19) 0px 10px 20px,
-      rgba(193, 44, 223, 0.23) 0px 6px 6px,
-      inset rgba(0, 0, 0, 0.19) 0px 10px 20px,
-      inset rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    border: 5px solid #b53543;
+  .card__image {
+    width: 558px;
+    height: auto;
   }
 
-  .card-title {
-    margin: 0;
-    font-size: 18px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    color: #fff;
-    cursor: default;
-  }
-
-  .card-des {
-    margin: 0;
-    font-size: 15px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    color: #fff;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    display: -webkit-box;
-    word-break: break-all;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    cursor: default;
-  }
-
-  .card-text {
+  .card__overlay {
     position: absolute;
-    margin: 0;
-    font-size: 14px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-weight: 400;
-    color: #fff;
-    right: 20px;
-    bottom: 5px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: calc(var(--curve) * 1px);
+    // background-color: var(--surface-color);
+    transform: translateY(100%);
+    // transition: 0.2s ease-in-out;
+    background-color: #42494f;
+    //background-color: #c95152;
+    // background: linear-gradient(to left top, #9d1231, #ff9e7a);
+    // transition: all 0.1s step-end;
+  }
+
+  .card:hover .card__overlay {
+    transform: translateY(0);
+    border-top-right-radius: unset;
+  }
+
+  .card__header {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 2em;
+    padding: 2.3em;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;
+    //background: linear-gradient(to left top, #9d1231, #ff9e7a);
+    background-color: #42494f;
+    //background-color: #c95152; // rgb(49 49 49); //background-color: var(--surface-color);
+    transform: translateY(-100%);
+
+    // transition: 0.5s ease-out;
+  }
+
+  .card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+  }
+
+  .card__arc path {
+    fill: #42494f;
+    //fill: #d34848; // rgb(49 49 49); //var(--surface-color);
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  }
+
+  .card:hover .card__header {
+    transform: translateY(0);
+    background: none;
+    border-top-right-radius: unset;
+
+    // transition: all 0.1s ease-in;
+  }
+  .card__header-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .card:hover .card__description {
+    animation: subirElegante 0.6s ease-out forwards;
+  }
+  .card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+    &.superefectivo {
+      width: 90px;
+      height: auto;
+      border-radius: 0;
+    }
+  }
+
+  .card__title {
+    font-size: 1em;
+    margin: 0 0 0.3em;
+    color: #fff;
+  }
+
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";
+    font-size: 0.8em;
+    color: #fff;
+  }
+
+  .card__status {
+    font-size: 0.8em;
+    color: #fff;
+  }
+
+  .card__description {
+    padding: 0 2em 2em;
+    margin: 0;
+    color: #fff;
+    font-family: "MockFlowFont";
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  .icons-tech {
+    img {
+      width: 40px;
+      margin: 0 0.5rem;
+    }
+  }
+
+  .fade-in-up {
     opacity: 0;
-    transition: all ease-in-out 0.3s;
-    animation: textanimate 0.8s alternate infinite;
-    cursor: pointer;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
-  .card:hover > .card-text {
+  .fade-in-up.visible {
     opacity: 1;
+    transform: translateY(0);
   }
 
-  @keyframes textanimate {
+  @keyframes subirElegante {
     0% {
-      right: 20px;
+      transform: translateY(30px);
+      opacity: 0;
     }
-
+    80% {
+      transform: translateY(-2px);
+    }
     100% {
-      right: 10px;
+      transform: translateY(0);
+      opacity: 1;
     }
   }
+  .custom-shape-divider-top-1743330679 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
 
-  .arrow-icon {
-    font-size: 15px;
-    font-weight: 500;
+  .custom-shape-divider-top-1743330679 svg {
+    position: relative;
+    display: block;
+    width: calc(300% + 1.3px);
+    height: 560px;
+  }
+
+  .custom-shape-divider-top-1743330679 .shape-fill {
+    fill: #1a1a1a;
   }
 }
