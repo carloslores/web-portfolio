@@ -9,19 +9,25 @@ const Welcome = () => {
     <>
       <section id="welcome" className="container container-padding">
         <div className="welcome-section-container row">
-          <div className="col-6 d-flex align-items-center">
+          <div className="col-7 d-flex align-items-center">
             <div className="left">
-              <h1>Meet Carlos Lores,</h1>
-              <h2>
-                Front-End
-                <span data-text="Developer" className="animate-text">
-                  Developer
+              <div className="pre-title">
+                <span className="dot-animation">
+
                 </span>
-              </h2>
+                Frontend Developer · Madrid · Disponible
+              </div>
+              <h1> <div className="word-rise">interfaces</div>
+                <div className="second-word-rise">con {' '}
+                  <span className="red-text" >
+                    carácter</span>
+
+                </div>
+              </h1>
+
 
               <p>
-                As a skilled web developer, I am passionate about creating
-                clean, efficient
+                Soy Carlos Lores. Construyo el front de productos que usa mucha gente: buscadores de coche, simuladores de ahorro, ecommerce. Código limpio, animación con criterio y cero plantillas.
               </p>
 
               <div className="hero-contact-container d-flex">
@@ -67,22 +73,37 @@ const Welcome = () => {
                 </div>
               </div>
 
-              <CardCode rigth={true}></CardCode>
-              <CardCode left={true}></CardCode>
+
             </div>
           </div>
 
-          <div className="col-6 d-flex align-items-center">
-            <div className="welcome-home-img">
-              <div className="img-box">
-                <div className="img-item">
-                  <img className="profile-image" src="hero.png" alt="" />
-                </div>
+          <div className="col-5 d-flex align-items-center">
+            <div className="contenedor-idea">
+              <div className="lineas-expresivas">
+                <div className="linea-idea" style={{ '--giro': '0deg' }}> <div className="linea l1">|</div></div>
+                <div className="linea-idea" style={{ '--giro': '0deg' }}> <div className="linea l2">|</div></div>
+                <div className="linea-idea" style={{ '--giro': '0deg' }}> <div className="linea l3">|</div></div>
+                <div className="linea-idea" style={{ '--giro': '0deg' }}> <div className="linea l4">|</div></div>
+                <div className="linea-idea" style={{ '--giro': '0deg' }}> <div className="linea l5">|</div></div>
+
+
               </div>
             </div>
+            <div className="welcome-home-img">
+
+              <img className="fire-img" src={process.env.PUBLIC_URL + "/fire-vertical.gif"} alt="fire" />
+              <img className="coder-img brain" src={process.env.PUBLIC_URL + "/brain.png"} alt="Coder" />
+              <img className="coder-img up-image" src={process.env.PUBLIC_URL + "/coder-up.png"} alt="Coder" />
+              <img className="coder-img down-image" src={process.env.PUBLIC_URL + "/coder-down.png"} alt="Coder" />
+              {/* <img className="bubble-img" src={process.env.PUBLIC_URL + "/bubble-speech.png"} alt="Coder" /> */}
+            </div>
+            {/* <div className="tech-stack"
+              style={{ position: 'absolute', left: '-14px', bottom: '18px', zIndex: 3, background: 'rgb(212, 55, 47)', color: 'rgb(236, 234, 228)', padding: '12px 18px', borderRadius: '100px', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', animation: '0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 2.35s 1 normal both running cl-rise' }}>
+              React · Angular · TS</div> */}
           </div>
         </div>
       </section>
+
       {/* <div className="p-relative">
         <div className="custom-shape-divider-bottom-1742646822">
           <svg

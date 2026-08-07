@@ -1,0 +1,78 @@
+@keyframes cl-fly {
+  0% {
+    opacity: 0;
+    transform: translate3d(115vw, 26vh, 0) rotate(34deg) scale(.46);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  52% {
+    transform: translate3d(-42vw, -5vh, 0) rotate(-17deg) scale(.9);
+  }
+
+  70% {
+    transform: translate3d(9vw, 3vh, 0) rotate(7deg) scale(1.03);
+  }
+
+  84% {
+    transform: translate3d(-3vw, -1vh, 0) rotate(-3deg) scale(.985);
+  }
+
+  93% {
+    transform: translate3d(1vw, 0, 0) rotate(1deg) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cl-bob {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-9px) rotate(-1.1deg);
+  }
+}
+
+@keyframes cl-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cl-blink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cl-riseline {
+  from {
+    transform: translateY(108%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
