@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./RailWrap.scss";
 import About from "../../sections/about";
-import Timeline from "../../sections/timeline";
+import Projects from "../../sections/projects";
+import { useGlobal } from "../../contexts/GlobalContext";
+
+
 
 const RailWrap = ({ showClients = true, showStack = true }) => {
     const rootRef = useRef(null);
+    const { showCoder, setShowCoder } = useGlobal();
 
     // filter puede llamarse desde el JSX, por lo que vive fuera del effect
     const filter = (e) => {
@@ -26,6 +30,43 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
         const empty = el.querySelector('[data-empty]');
         if (empty) empty.style.display = shown ? 'none' : 'block';
     };
+
+    const [elementoActivo, setElementoActivo] = useState('');
+    const ids = ['welcome', 'about', 'projects', 'services', 'contact'];
+
+    useEffect(() => {
+        const manejarScroll = () => {
+            // 1. Recorremos los IDs de tus elementos
+            for (const id of ids) {
+                const el = document.getElementById(id);
+                if (!el) continue;
+
+                // 2. Obtenemos la posición del elemento respecto a la pantalla
+                const posicion = el.getBoundingClientRect();
+                if (el.id === "projects") {
+                    setShowCoder(true)
+                } else {
+                    setShowCoder(false)
+                }
+
+                // 3. Si la parte superior del elemento cruzó el límite (ej. top 100px)
+                // y su parte inferior aún no ha salido por arriba, es el elemento activo
+                if (posicion.top <= 100 && posicion.bottom > 100) {
+                    setElementoActivo(id);
+                    break; // Detiene el bucle al encontrar el primero visible
+                }
+            }
+        };
+
+        // Escuchamos el evento scroll del objeto window
+        window.addEventListener('scroll', manejarScroll);
+
+        // Ejecutamos una vez al cargar para detectar la sección inicial
+        manejarScroll();
+
+        // Limpiamos el evento al desmontar el componente
+        return () => window.removeEventListener('scroll', manejarScroll);
+    }, []);
 
     useEffect(() => {
         const el = rootRef.current;
@@ -158,16 +199,54 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                     <path data-rail-path="1" d="M 50 0 C 78 60, 22 112, 50 172 S 82 262, 44 334 S 20 432, 58 504 S 80 604, 40 674 S 20 782, 54 854 S 76 934, 50 1000" fill="none" stroke="#d4372f" strokeWidth="2.5" strokeLinecap="round" pathLength="1" strokeDasharray="1" strokeDashoffset="1" vectorEffect="non-scaling-stroke" />
                 </svg>
 
-                <img data-rail-dot="1" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} src={process.env.PUBLIC_URL + "/brain.png"} alt="" />
-                <img
-                    data-rail-dot="2"
-                    src={process.env.PUBLIC_URL + "/coder-down.png"}
+                {!showCoder ? <img data-rail-dot="1" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} src={process.env.PUBLIC_URL + "/brain.png"} alt="" />
+                    :
+                    <img
+                        data-rail-dot="1"
+                        src={process.env.PUBLIC_URL + "/coder-down.png"}
+                        alt=""
+                        style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
+                    />
+                }
+                {showCoder && <img
+                    data-rail-dot="1"
+                    src={process.env.PUBLIC_URL + "/fire.png"}
                     alt=""
                     style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
                 />
+                }
             </div>
             <About />
-            <Timeline />
+            <div data-dc-tpl="84" data-ribbon="1" data-sec="1" style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "34px 0px 34px 88px", borderTop: "1px solid rgb(214, 210, 199)", borderBottom: "1px solid rgb(214, 210, 199)" }}>
+                <div data-dc-tpl="85" data-ribbon-track="1" style={{ display: "inline-flex", alignItems: "center", gap: "44px", fontFamily: "Anton, sans-serif", textTransform: "lowercase", fontSize: "clamp(38px, 6.5vw, 92px)", lineHeight: "1", color: "rgb(22, 21, 15)", willChange: "transform", transform: "translate3d(-720px, 0px, 0px)" }}>
+                    <span data-dc-tpl="86">react</span><span data-dc-tpl="87" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="88">angular</span><span data-dc-tpl="89" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="90">typescript</span><span data-dc-tpl="91" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="92">animación</span><span data-dc-tpl="93" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="94">rendimiento</span><span data-dc-tpl="95" style={{ color: "rgb(212, 55, 47)" }}>/</span>
+                    <span data-dc-tpl="96">react</span><span data-dc-tpl="97" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="98">angular</span><span data-dc-tpl="99" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="100">typescript</span><span data-dc-tpl="101" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="102">animación</span><span data-dc-tpl="103" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="104">rendimiento</span><span data-dc-tpl="105" style={{ color: "rgb(212, 55, 47)" }}>/</span>
+                </div>
+            </div>
+            <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_213_2780)">
+                    <g filter="url(#filter0_g_213_2780)">
+                        <path d="M2437.62 112.088L2381.62 112.306C1606.78 115.31 854.364 122.328 463.232 125.977L445.164 126.146C59.7545 129.74 52.1082 129.745 44.5684 129.745H-11.4316V17.7451H44.5684C51.4158 17.7451 58.157 17.7498 444.119 14.1504L462.188 13.9814C853.316 10.3328 1606.01 3.3112 2381.18 0.305664L2437.18 0.0888672L2437.62 112.088Z" fill="currentColor"></path>
+                    </g>
+                    <rect x="-11" y="46" width="100%" height="100%" fill="currentColor"></rect>
+                </g>
+                <defs>
+                    <filter id="filter0_g_213_2780" x="-25.4316" y="-13.9111" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                        <feTurbulence type="fractalNoise" baseFrequency="0.0099999997764825821 0.0099999997764825821" numOctaves="3" seed="3267"></feTurbulence>
+                        <feDisplacementMap in="shape" scale="28" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%"></feDisplacementMap>
+                        <feMerge result="effect1_texture_213_2780">
+                            <feMergeNode in="displacedImage"></feMergeNode>
+                        </feMerge>
+                    </filter>
+                    <clipPath id="clip0_213_2780">
+                        <rect width="2429" height="144" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+            <Projects />
+
         </div>
     );
 };

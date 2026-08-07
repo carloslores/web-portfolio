@@ -46,10 +46,12 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    position: relative;
+    position: absolute;
     filter: drop-shadow(0 26px 30px rgba(22, 21, 15, .22));
     animation: cl-fly 2.05s cubic-bezier(.22, .9, .24, 1) .34s both, cl-bob 4.6s ease-in-out 2.7s infinite;
     perspective: 1000px;
+    top: 20rem;
+    right: 19rem;
 
     &:before,
     &:after {
@@ -110,9 +112,17 @@
         width: 166px;
         top: -63px;
         right: -143px;
-        -webkit-animation: vibrate-1 0.3s linear infinite both;
-        animation: vibrate-1 0.3s linear infinite both;
-        animation-delay: 5s;
+
+        &.rotate-out-bl {
+          -webkit-animation: bounce-out-bottom 1.5s both;
+          animation: bounce-out-bottom 1.5s both;
+        }
+
+        &.vibrate {
+          -webkit-animation: vibrate-1 0.3s linear infinite both;
+          animation: vibrate-1 0.3s linear infinite both;
+          animation-delay: 5s;
+        }
 
       }
     }
@@ -364,13 +374,15 @@ p {
 
 /* Contenedor principal que posiciona todo en el centro */
 .contenedor-idea {
-  position: relative;
+  position: absolute;
   width: 200px;
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   rotate: -48deg;
+  top: 15rem;
+  right: 18rem;
 }
 
 

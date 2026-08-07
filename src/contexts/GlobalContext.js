@@ -4,6 +4,7 @@ const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const [isLightMode, setisLightMode] = useState(false);
+  const [showCoder, setShowCoder] = useState(false);
 
   useEffect(() => {
     if (isLightMode) {
@@ -18,7 +19,7 @@ export const GlobalProvider = ({ children }) => {
   const toggleDarkMode = () => setisLightMode((prev) => !prev);
 
   return (
-    <GlobalContext.Provider value={{ isLightMode, toggleDarkMode }}>
+    <GlobalContext.Provider value={{ isLightMode, toggleDarkMode, showCoder, setShowCoder }}>
       {children}
     </GlobalContext.Provider>
   );

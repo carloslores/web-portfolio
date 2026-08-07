@@ -42,7 +42,7 @@ function App() {
         <RailWrap />
 
 
-        <Projects />
+
       </main>
     </GlobalProvider>
   );

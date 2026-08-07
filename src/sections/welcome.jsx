@@ -1,9 +1,21 @@
-import CardCode from "../components/CardCode/CardCode";
+
 import "./welcome.scss";
 import { useGlobal } from "../contexts/GlobalContext";
+import { useEffect } from "react";
 
 const Welcome = () => {
   const { isLightMode } = useGlobal();
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 100) {
+        document.getElementById("brain-up").classList.add("rotate-out-bl");
+        document.getElementById("brain-up").classList.remove("vibrate");
+      } else {
+        document.getElementById("brain-up").classList.remove("rotate-out-bl");
+        document.getElementById("brain-up").classList.add("vibrate");
+      }
+    })
+  }, [])
 
   return (
     <>
@@ -92,7 +104,7 @@ const Welcome = () => {
             <div className="welcome-home-img">
 
               <img className="fire-img" src={process.env.PUBLIC_URL + "/fire-vertical.gif"} alt="fire" />
-              <img className="coder-img brain" src={process.env.PUBLIC_URL + "/brain.png"} alt="Coder" />
+              <img id="brain-up" className="coder-img brain vibrate" src={process.env.PUBLIC_URL + "/brain.png"} alt="Coder" />
               <img className="coder-img up-image" src={process.env.PUBLIC_URL + "/coder-up.png"} alt="Coder" />
               <img className="coder-img down-image" src={process.env.PUBLIC_URL + "/coder-down.png"} alt="Coder" />
               {/* <img className="bubble-img" src={process.env.PUBLIC_URL + "/bubble-speech.png"} alt="Coder" /> */}
