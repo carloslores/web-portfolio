@@ -20,7 +20,7 @@ const Welcome = () => {
   return (
     <>
       <section id="welcome" className="container container-padding">
-        <div className="welcome-section-container row">
+        <div className="welcome-section-container row no-row-mb">
           <div className="col-7 d-flex align-items-center">
             <div className="left">
               <div className="pre-title">
@@ -42,7 +42,7 @@ const Welcome = () => {
                 Soy Carlos Lores. Construyo el front de productos que usa mucha gente: buscadores de coche, simuladores de ahorro, ecommerce. Código limpio, animación con criterio y cero plantillas.
               </p>
 
-              <div className="hero-contact-container d-flex">
+              <div className="hero-contact-container d-flex no-flex-mb">
                 <button className="btn btn-primary">Explore My Work</button>
                 <div className="icons">
                   <a

@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "./RailWrap.scss";
 import About from "../../sections/about";
 import Projects from "../../sections/projects";
+import HowIWork from "../../sections/howIWork";
+import TechStack from "../../sections/techStack";
+import Contact from "../../sections/contact";
 import { useGlobal } from "../../contexts/GlobalContext";
 
 
@@ -199,22 +202,30 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                     <path data-rail-path="1" d="M 50 0 C 78 60, 22 112, 50 172 S 82 262, 44 334 S 20 432, 58 504 S 80 604, 40 674 S 20 782, 54 854 S 76 934, 50 1000" fill="none" stroke="#d4372f" strokeWidth="2.5" strokeLinecap="round" pathLength="1" strokeDasharray="1" strokeDashoffset="1" vectorEffect="non-scaling-stroke" />
                 </svg>
 
-                {!showCoder ? <img data-rail-dot="1" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} src={process.env.PUBLIC_URL + "/brain.png"} alt="" />
+                {!showCoder ?
+                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "89px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}>
+                        <img src={process.env.PUBLIC_URL + "/brain.png"} alt="" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} />
+                    </div>
                     :
-                    <img
-                        data-rail-dot="1"
-                        src={process.env.PUBLIC_URL + "/coder-down.png"}
-                        alt=""
-                        style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
-                    />
+                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "89px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} >
+
+                        <img className="fire"
+                            src={process.env.PUBLIC_URL + "/fire.gif"}
+                            alt="" style={{ position: "absolute", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
+
+                        />
+                        <img className="smoke" src={process.env.PUBLIC_URL + "/smoke.gif"} alt="" style={{ position: "absolute", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} />
+                        <img className="eyes vibrate" src={process.env.PUBLIC_URL + "/eyes.png"} style={{ position: "absolute", top: 0, height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} />
+                        <img
+
+                            src={process.env.PUBLIC_URL + "/coder-down.png"}
+                            alt=""
+                            style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
+                        />
+                    </div>
+
                 }
-                {showCoder && <img
-                    data-rail-dot="1"
-                    src={process.env.PUBLIC_URL + "/fire.png"}
-                    alt=""
-                    style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
-                />
-                }
+
             </div>
             <About />
             <div data-dc-tpl="84" data-ribbon="1" data-sec="1" style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "34px 0px 34px 88px", borderTop: "1px solid rgb(214, 210, 199)", borderBottom: "1px solid rgb(214, 210, 199)" }}>
@@ -223,15 +234,15 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                     <span data-dc-tpl="96">react</span><span data-dc-tpl="97" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="98">angular</span><span data-dc-tpl="99" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="100">typescript</span><span data-dc-tpl="101" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="102">animación</span><span data-dc-tpl="103" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="104">rendimiento</span><span data-dc-tpl="105" style={{ color: "rgb(212, 55, 47)" }}>/</span>
                 </div>
             </div>
-            <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="none" xmlns="http://www.w3.org/2000/svg" marginTop="2rem">
                 <g clip-path="url(#clip0_213_2780)">
                     <g filter="url(#filter0_g_213_2780)">
-                        <path d="M2437.62 112.088L2381.62 112.306C1606.78 115.31 854.364 122.328 463.232 125.977L445.164 126.146C59.7545 129.74 52.1082 129.745 44.5684 129.745H-11.4316V17.7451H44.5684C51.4158 17.7451 58.157 17.7498 444.119 14.1504L462.188 13.9814C853.316 10.3328 1606.01 3.3112 2381.18 0.305664L2437.18 0.0888672L2437.62 112.088Z" fill="currentColor"></path>
+                        <path d="M2437.62 112.088L2381.62 112.306C1606.78 115.31 854.364 122.328 463.232 125.977L445.164 126.146C59.7545 129.74 52.1082 129.745 44.5684 129.745H-11.4316V17.7451H44.5684C51.4158 17.7451 58.157 17.7498 444.119 14.1504L462.188 13.9814C853.316 10.3328 1606.01 3.3112 2381.18 0.305664L2437.18 0.0888672L2437.62 112.088Z" fill="rgb(22, 21, 15)"></path>
                     </g>
-                    <rect x="-11" y="46" width="100%" height="100%" fill="currentColor"></rect>
+                    <rect x="0" y="46" width="100%" height="100%" fill="rgb(22, 21, 15)"></rect>
                 </g>
                 <defs>
-                    <filter id="filter0_g_213_2780" x="-25.4316" y="-13.9111" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <filter id="filter0_g_213_2780" x="0" y="-13.9111" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                         <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
                         <feTurbulence type="fractalNoise" baseFrequency="0.0099999997764825821 0.0099999997764825821" numOctaves="3" seed="3267"></feTurbulence>
@@ -241,11 +252,39 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                         </feMerge>
                     </filter>
                     <clipPath id="clip0_213_2780">
-                        <rect width="2429" height="144" fill="white"></rect>
+                        <rect width="2429" height="144" fill="rgb(22, 21, 15)"></rect>
                     </clipPath>
                 </defs>
             </svg>
             <Projects />
+            <HowIWork />
+            <TechStack />
+            <div style={{ color: "rgb(22, 21, 15)", marginBottom: "-3rem", inset: "auto -3rem 0%", width: "100%", marginTop: "-2rem" }}>
+                <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="rgb(22, 21, 15)" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_213_2781)">
+                        <g filter="url(#filter0_g_213_2781)">
+                            <path d="M-8.61522 31.9119L47.3848 31.6941C822.216 28.69 1574.64 21.672 1965.77 18.0234L1983.84 17.8545C2369.25 14.2603 2376.89 14.2549 2384.43 14.2549L2440.43 14.2549L2440.43 126.255L2384.43 126.255C2377.58 126.255 2370.84 126.25 1984.88 129.85L1966.81 130.019C1575.68 133.667 822.989 140.689 47.8193 143.694L-8.18066 143.911L-8.61522 31.9119Z" fill="rgb(22, 21, 15)"></path>
+                        </g>
+                        <rect x="0" y="98" width="2449" height="98" transform="rotate(-180 2440 98)" fill="rgb(22, 21, 15)currentColor"></rect>
+                    </g>
+                    <defs>
+                        <filter id="filter0_g_213_2781" x="0" y="0.254883" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                            <feTurbulence type="fractalNoise" baseFrequency="0.0099999997764825821 0.0099999997764825821" numOctaves="3" seed="3267"></feTurbulence>
+                            <feDisplacementMap in="shape" scale="28" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%"></feDisplacementMap>
+                            <feMerge result="effect1_texture_213_2781">
+                                <feMergeNode in="displacedImage"></feMergeNode>
+                            </feMerge>
+                        </filter>
+                        <clipPath id="clip0_213_2781">
+                            <rect width="2429" height="144" fill="rgb(22, 21, 15)" transform="translate(2429 144) rotate(-180)"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <Contact />
 
         </div>
     );
