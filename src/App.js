@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Header from "./components/Header/Header";
+import Header from "./components/header/header";
 import "./App.scss";
 import Welcome from "./sections/welcome";
 import { GlobalProvider } from "./contexts/GlobalContext";
