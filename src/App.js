@@ -3,16 +3,18 @@ import Header from "./components/Header/Header";
 import "./App.scss";
 import Welcome from "./sections/welcome";
 import { GlobalProvider } from "./contexts/GlobalContext";
-import About from "./sections/about";
 import Projects from "./sections/projects";
-import Timeline from "./sections/timeline";
+import RailWrap from "./components/RailWrap/RailWrap";
 
 function App() {
   const hasRun = useRef(false);
   const [navBg, setNavBg] = useState(false);
+  const [showRail, setShowRail] = useState(false);
 
   const changeNavBg = () => {
     window.scrollY >= 100 ? setNavBg(true) : setNavBg(false);
+    window.scrollY >= 500 ? setShowRail(true) : setShowRail(false);
+
   };
 
   useEffect(() => {
@@ -37,10 +39,10 @@ function App() {
         </div>
 
         <Welcome />
-        <About />
-        <Timeline />
+        <RailWrap />
 
-        <Projects />
+
+
       </main>
     </GlobalProvider>
   );

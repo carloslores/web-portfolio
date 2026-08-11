@@ -1,0 +1,33 @@
+[data-rail] .test {
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    width: 132px;
+    height: auto;
+    margin: -106px 0px 0px -66px;
+    opacity: 1;
+    filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 20px 26px);
+    transition: opacity 0.45s;
+    will-change: transform;
+    transform: translate3d(51.3px, 41.9px, 0px) rotate(0.55deg);
+}
+
+.fire {
+    top: -189px;
+    right: 75px;
+    width: 60px;
+    z-index: 1;
+    height: 190px;
+    opacity: .8;
+}
+
+.eyes {
+    z-index: 5;
+    left: 3px;
+    width: 79px;
+}
+
+.smoke {
+    top: -312px;
+    right: -132px;
+}

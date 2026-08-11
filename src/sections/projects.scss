@@ -7,12 +7,150 @@
   --surface-color: #fff;
   --curve: 40;
 }
+
 #projects {
-  background: linear-gradient(to left top, #9d1231, #ff9e7a);
+  background: rgb(22, 21, 15);
+  color: rgb(236, 234, 228);
+  padding: 120px 40px 140px 88px;
   min-height: 120vh;
+  margin-top: -1rem;
+
   .card-container {
     padding: 3rem 0;
   }
+
+
+  h2 {
+    font-family: Anton, sans-serif;
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: clamp(44px, 8vw, 128px);
+    line-height: 0.86;
+    letter-spacing: -0.015em;
+    margin: 0px;
+    color: rgb(236, 234, 228);
+
+  }
+
+  .btn-project-filter {
+    background: transparent;
+    color: rgb(236, 234, 228);
+    border: 1px solid rgb(58, 56, 47);
+    padding: 11px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    &.active {
+      background: rgb(212, 55, 47);
+      border: 1px solid rgb(212, 55, 47);
+    }
+
+    &:hover {
+      border-color: rgb(236, 234, 228) !important;
+    }
+  }
+
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    margin-top: 70px;
+  }
+
+  .card-project-container {
+    display: flex;
+    flex-direction: column;
+    background: rgb(30, 28, 22);
+    border-radius: 26px;
+    overflow: hidden;
+    border: 1px solid rgb(44, 42, 34);
+    opacity: 1;
+    transform: none;
+    filter: none;
+
+    .card-image-container {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: rgb(15, 14, 10);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+    }
+
+    .info-project-container {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1 1 0%;
+
+      >div {
+        gap: 12px;
+      }
+
+      .enterprise-name {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgb(212, 55, 47);
+      }
+
+      .line-project {
+        height: 1px;
+        flex: 1 1 0%;
+        background: rgb(44, 42, 34);
+      }
+
+      h3 {
+        font-family: Anton, sans-serif;
+        font-weight: 400;
+        text-transform: lowercase;
+        font-size: 30px;
+        line-height: 1.02;
+        margin: 0px;
+      }
+
+      p {
+        margin: 0px;
+        padding: 0;
+        font-size: 15px;
+        line-height: 1.6;
+        color: rgb(160, 154, 140);
+      }
+
+      .tech-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 8px;
+
+        .tech-icon {
+          border: 1px solid rgb(44, 42, 34);
+          color: rgb(138, 133, 120);
+          padding: 6px 12px;
+          border-radius: 100px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 10px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+      }
+
+
+    }
+  }
+
   .card {
     position: relative;
     display: block;
@@ -86,6 +224,7 @@
 
     // transition: all 0.1s ease-in;
   }
+
   .card__header-text {
     display: flex;
     align-items: center;
@@ -94,11 +233,13 @@
   .card:hover .card__description {
     animation: subirElegante 0.6s ease-out forwards;
   }
+
   .card__thumb {
     flex-shrink: 0;
     width: 50px;
     height: auto;
     margin-right: 1rem;
+
     &.superefectivo {
       width: 90px;
       height: auto;
@@ -135,6 +276,7 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
   }
+
   .icons-tech {
     img {
       width: 40px;
@@ -158,32 +300,16 @@
       transform: translateY(30px);
       opacity: 0;
     }
+
     80% {
       transform: translateY(-2px);
     }
+
     100% {
       transform: translateY(0);
       opacity: 1;
     }
   }
-  .custom-shape-divider-top-1743330679 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-  }
 
-  .custom-shape-divider-top-1743330679 svg {
-    position: relative;
-    display: block;
-    width: calc(300% + 1.3px);
-    height: 560px;
-  }
 
-  .custom-shape-divider-top-1743330679 .shape-fill {
-    fill: #1a1a1a;
-  }
 }

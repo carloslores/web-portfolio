@@ -1,0 +1,43 @@
+#techStack {
+    background-color: rgb(22, 21, 15);
+    padding: 120px 40px 140px 88px;
+
+    .stack-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px;
+
+        .stack-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 34px 16px;
+            border: 1px solid rgb(44, 42, 34);
+            border-radius: 20px;
+            transition: opacity 0.75s 0.14s, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) 0.14s, filter 0.75s;
+            opacity: 1;
+            transform: none;
+            filter: none;
+
+            &:hover {
+                background: rgb(30, 28, 22) !important;
+                border-color: rgb(63, 60, 49) !important;
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+
+            span {
+                font-family: "JetBrains Mono", monospace;
+                font-size: 11px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: rgb(160, 154, 140);
+            }
+        }
+    }
+}

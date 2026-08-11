@@ -1,8 +1,18 @@
 @import "grid";
-@import url("https://fonts.googleapis.com/css?? family=Poppins: wght@300;400; 500; 600; 700; 800;900&display=swap");
+@import "animations";
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Boldonse&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 * {
   margin: 0;
@@ -24,29 +34,63 @@ html {
 html,
 body {
   // overflow-x: hidden;
-  &.dark-mode {
-    background-color: #1a1a1a;
-    color: #fff;
-    .btn-outline {
-      border: 2px solid #d4372f;
-    }
-    .btn-primary {
+  background-color: rgb(236, 234, 228);
+  color: rgb(58, 56, 47);
+
+  p {
+    font-family: 'Work Sans';
+  }
+
+  .red-text {
+    color: #d4372f;
+  }
+
+  .btn-outline {
+    border: 2px solid #d4372f;
+  }
+
+  .btn-primary {
+    background: rgb(22, 21, 15);
+    color: rgb(236, 234, 228);
+
+    &:hover {
       background-color: #d4372f;
     }
   }
+
+  .btn-secondary {
+    background-color: #d4372f;
+    color: #fff;
+
+    &:hover {
+
+      background: rgb(22, 21, 15);
+    }
+  }
+
+
+
+
+
+
+
   &.light-mode {
     background-color: #e9f1f9;
     color: #444;
+
     .btn-outline {
       border: 2px solid #444;
     }
+
     .btn-primary {
       background-color: #fb837d;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
+
     .kGQUbf .slider {
       background-color: #89c2ff;
     }
+
     .card {
       background-color: #66a8d34d;
     }
@@ -56,6 +100,12 @@ body {
 .container-padding {
   padding-left: 6rem;
   padding-right: 6rem;
+
+  @media(max-width: 768px) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 4rem;
+  }
 }
 
 .btn {
@@ -82,6 +132,7 @@ body {
   &:hover {
     transform: scale(1.5);
     mask-image: none !important;
+
     svg {
       fill: "#07bdf0";
     }
@@ -93,5 +144,14 @@ body {
     &:hover {
       transform: scale(1.2);
     }
+  }
+}
+
+
+@media(max-width: 768px) {
+
+  .no-flex-mb,
+  .no-row-mb {
+    display: block !important;
   }
 }

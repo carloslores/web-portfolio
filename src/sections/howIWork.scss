@@ -1,0 +1,69 @@
+#howIWork {
+    background: rgb(22, 21, 15);
+    padding: 120px 40px 140px 88px;
+
+    h2 {
+        font-family: Anton, sans-serif;
+        font-weight: 400;
+        text-transform: lowercase;
+        font-size: clamp(40px, 7vw, 110px);
+        line-height: 0.88;
+        letter-spacing: -0.015em;
+        margin: 0px 0px 70px;
+        color: rgb(236, 234, 228);
+    }
+
+    .table-container {
+        display: grid;
+        grid-template-columns: 80px 1fr 1fr;
+        gap: 40px;
+        padding: 38px 0px;
+        border-top: 1px solid rgb(44, 42, 34);
+        align-items: start;
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: opacity 0.75s 0.07s, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) 0.07s, filter 0.75s;
+
+        @media (max-width: 900px) {
+            & {
+                grid-template-columns: 56px 1fr !important;
+                gap: 6px 16px !important;
+                padding: 28px 0 !important;
+            }
+        }
+
+        .reason-num {
+            font-family: Anton, sans-serif;
+            font-size: 40px;
+            line-height: 1;
+            color: rgb(212, 55, 47);
+            position: sticky;
+            top: 120px;
+        }
+
+        h3 {
+            font-family: Anton, sans-serif;
+            font-weight: 400;
+            text-transform: lowercase;
+            font-size: 34px;
+            line-height: 1;
+            margin: 0px;
+            color: rgb(236, 234, 228);
+        }
+
+        p {
+            margin: 0px;
+            font-size: 17px;
+            line-height: 1.6;
+            color: rgb(160, 154, 140);
+            text-wrap: pretty;
+            padding: 0;
+
+            @media (max-width: 900px) {
+                grid-column: 2 / -1 !important;
+            }
+        }
+    }
+
+}

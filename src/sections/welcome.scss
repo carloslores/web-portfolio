@@ -1,22 +1,24 @@
 .welcome-section-container {
   height: 100vh;
+  font-family: "Anton", sans-serif;
+
+  .red-text {
+    color: rgb(212, 55, 47);
+  }
+
+
   .bg-divices {
     width: 100%;
     mask-image: linear-gradient(to left, black 80%, transparent);
     height: 70vh;
-    &::after {
-      background-image: linear-gradient(
-        45deg,
-        lighten(navy, 5%),
-        lighten(purple, 10%)
-      );
-      opacity: 0.425;
-    }
+
+
   }
 
   .profile-image {
     mask-image: linear-gradient(black 80%, transparent);
   }
+
   .mask {
     // -webkit-mask-image: url(data:image/svg+xml;base64,PCEtLT94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/LS0+CiAgICAgICAgICAgICAgPHN2ZyBpZD0ic3ctanMtYmxvYi1zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSI+CiAgICAgICAgICAgICAgICAgICAgPGRlZnM+IAogICAgICAgICAgICAgICAgICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9InN3LWdyYWRpZW50IiB4MT0iMCIgeDI9IjEiIHkxPSIxIiB5Mj0iMCI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3RvcCBpZD0ic3RvcDEiIHN0b3AtY29sb3I9InJnYmEoMTg3Ljk1OSwgMzQuMDE4LCAzNC4wMTgsIDEpIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3RvcCBpZD0ic3RvcDIiIHN0b3AtY29sb3I9InJnYmEoMjUxLCAxNjgsIDMxLCAxKSIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgICAgICAgICAgICAgPC9kZWZzPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0idXJsKCNzdy1ncmFkaWVudCkiIGQ9Ik0xOS42LC0zMi4xQzI2LjYsLTI5LjksMzQuMywtMjcuMSwzNi42LC0yMS42QzM4LjksLTE2LjIsMzUuNywtOC4xLDMzLjgsLTEuMUMzMS45LDUuOSwzMS4zLDExLjgsMjksMTcuMkMyNi43LDIyLjcsMjIuOCwyNy42LDE3LjYsMzEuM0MxMi41LDM1LDYuMywzNy41LDAuNSwzNi43Qy01LjQsMzUuOSwtMTAuNywzMS45LC0xNS44LDI4LjJDLTIwLjksMjQuNCwtMjUuNywyMS4xLC0yOS4zLDE2LjRDLTMyLjksMTEuOCwtMzUuMiw1LjksLTM0LjQsMC41Qy0zMy42LC00LjksLTI5LjYsLTkuOCwtMjYuMiwtMTQuOEMtMjIuOCwtMTkuOCwtMjAsLTI0LjgsLTE1LjcsLTI4LjZDLTExLjUsLTMyLjUsLTUuNywtMzUuMSwwLjMsLTM1LjZDNi4zLC0zNi4xLDEyLjYsLTM0LjQsMTkuNiwtMzIuMVoiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwIDUwKSIgc3Ryb2tlLXdpZHRoPSIwIiBzdHlsZT0idHJhbnNpdGlvbjogMC4zczsiPjwvcGF0aD4KICAgICAgICAgICAgICA8L3N2Zz4=);
     // -webkit-mask-repeat: no-repeat;
@@ -44,6 +46,95 @@
     text-align: center;
     display: flex;
     justify-content: center;
+    position: absolute;
+    filter: drop-shadow(0 26px 30px rgba(22, 21, 15, .22));
+    animation: cl-fly 2.05s cubic-bezier(.22, .9, .24, 1) .34s both, cl-bob 4.6s ease-in-out 2.7s infinite;
+    perspective: 1000px;
+    top: 20rem;
+    right: 19rem;
+
+    @media(max-width: 768px) {
+      right: 11rem;
+      top: 28rem;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      background-color: #fff;
+      content: ' ';
+      height: .15rem;
+      border-radius: .15rem;
+      width: 1.4rem;
+      top: -.7rem;
+      left: -1.5rem;
+      transform: rotate(45deg);
+      box-shadow: .2rem .2rem 0 0 #1D2935;
+      opacity: 0;
+      transition: all .2s ease-in-out;
+    }
+
+    &:after {
+      left: initial;
+      right: -1.5rem;
+      box-shadow: -.2rem .2rem 0 0 #1D2935;
+      transform: rotate(-45deg);
+    }
+
+    .fire-img {
+      left: -6.7rem;
+      width: 146px;
+      position: absolute;
+      top: 11rem;
+      rotate: 88deg;
+      z-index: 5;
+      animation: life-lines infinite;
+      animation-duration: .8s;
+      animation-delay: 5s;
+      opacity: 0;
+    }
+
+    .coder-img {
+      width: 330px;
+      height: auto;
+      position: absolute;
+
+      &.up-image {
+        width: 180px;
+        top: -67px;
+        right: -150px;
+        animation: rotar90 1s ease-in-out forwards;
+        transform-origin: right center;
+        animation-delay: 4s;
+      }
+
+      &.down-image {
+        width: 330px;
+      }
+
+      &.brain {
+        width: 180px;
+        width: 166px;
+        top: -63px;
+        right: -143px;
+
+        &.rotate-out-bl {
+          -webkit-animation: bounce-out-bottom 1.5s both;
+          animation: bounce-out-bottom 1.5s both;
+        }
+
+
+      }
+    }
+
+    .bubble-img {
+      width: 205px;
+      height: 190px;
+      position: absolute;
+      right: -10rem;
+      animation: cl-fly 2.05s cubic-bezier(0.22, 0.9, 0.24, 1) 0.34s both, cl-bob 4.6s ease-in-out 2.7s infinite;
+      animation-delay: 3s;
+    }
   }
 
   .welcome-home-img .img-box {
@@ -58,28 +149,13 @@
     overflow: hidden;
   }
 
-  .welcome-home-img .img-box::before,
-  .welcome-home-img .img-box::after {
-    content: "";
-    position: absolute;
-    width: 5000px;
-    height: 5000px;
-    background: conic-gradient(transparent, transparent, transparent, #07bdf0);
-    // background: conic-gradient(transparent, transparent, transparent, #d4372f);
-    transform: rotate(0deg);
-    animation: rotate-border 10s linear infinite;
-  }
-
-  .welcome-home-img .img-box::after {
-    animation-delay: -5s;
-  }
-
   .animate-text {
     position: relative;
     color: #252839;
     -webkit-text-stroke: 1px #383d52;
     margin-left: 1rem;
   }
+
   .animate-text::before {
     content: attr(data-text);
     position: absolute;
@@ -95,11 +171,13 @@
   }
 
   @keyframes animate-text {
+
     0%,
     10%,
     100% {
       width: 0;
     }
+
     70%,
     90% {
       width: 100%;
@@ -111,17 +189,19 @@
       transform: rotate(360deg);
     }
   }
-  .welcome-home-img .img-box .img-item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
 
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 1;
+  .welcome-home-img .img-box .img-item {
+    // position: relative;
+    // width: 100%;
+    // height: 100%;
+    // border-radius: 50%;
+
+    // display: flex;
+    // justify-content: center;
+    // overflow: hidden;
+    // z-index: 1;
   }
+
   .welcome-home-img .img-box .img-item img {
     position: absolute;
     display: block;
@@ -136,31 +216,83 @@
     justify-content: space-evenly;
     height: fit-content;
   }
+
   .cards-container {
     min-height: 380px;
   }
 }
+
 .left {
   text-align: left;
   // width: 500px;
   width: auto;
+
+  .pre-title {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    font-family: 'JetBrains Mono';
+    text-transform: uppercase;
+    color: rgb(107, 102, 92);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    gap: 14px;
+
+    .dot-animation {
+      display: block;
+      width: 9px !important;
+      height: 9px !important;
+      border-radius: 50%;
+      background: #d4372f;
+      animation: cl-blink 1.6s steps(1) infinite;
+    }
+  }
+
   // margin-left: 6rem;
   p {
     padding-left: 0;
+    font-size: 20px;
+    line-height: 1.5;
   }
 }
 
 .dark-mode {
   h1 {
-    color: #fff;
+    font-family: Anton, sans-serif;
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: clamp(56px, 9.5vw, 200px);
+    line-height: 0.86;
+    letter-spacing: -0.015em;
+    margin: 0px;
+    color: rgb(22, 21, 15);
+    display: block;
+    overflow: hidden;
+    padding-bottom: .04em;
+
+    @media(max-width: 768px) {
+      font-size: 37px;
+    }
+
+    .word-rise {
+      animation: cl-riseline 1s cubic-bezier(.16, 1, .3, 1) both;
+      animation-delay: .1s;
+    }
+
+    .second-word-rise {
+      animation: cl-riseline 1s cubic-bezier(.16, 1, .3, 1) both;
+      animation-delay: .2s;
+    }
+
   }
-  h2 {
-    color: #fff;
-  }
+
+
+
   .welcome-section-container {
     .welcome-home-img .img-box .img-item {
       background: #1a1a1a;
       border: 0.1px solid #1a1a1a;
+
       img {
         mix-blend-mode: lighten;
       }
@@ -172,32 +304,32 @@
   h1 {
     color: #444;
   }
+
   h2 {
     color: #444;
   }
+
+
+
   .welcome-section-container {
+
+
     .welcome-home-img .img-box .img-item {
       background-color: #e9f1f9;
-      &::before,
-      &::after {
-        background: linear-gradient(
-          to right,
-          rgb(233 241 249) 0%,
-          rgba(255, 255, 255, 0) 100%
-        );
-        content: "";
-        height: 100%;
-        position: absolute;
-        width: 20%;
-      }
-      &::after {
-        z-index: 4;
-        left: 14%;
-      }
-      &::before {
-        z-index: 4;
-        left: 10%;
-      }
+
+
+      // &::after {
+      //   z-index: 4;
+      //   left: 14%;
+      // }
+
+      // &::before {
+      //   z-index: 4;
+      //   left: 10%;
+      // }
+
+
+
       img {
         mix-blend-mode: normal;
         // width: 79%;
@@ -220,6 +352,11 @@ p {
   padding: 2rem;
   text-align: left;
   margin-right: 1rem;
+
+  @media(max-width: 768px) {
+    padding: 2rem 0;
+    font-size: 15px !important;
+  }
 }
 
 .custom-shape-divider-bottom-1742646822 {
@@ -241,4 +378,96 @@ p {
 
 .custom-shape-divider-bottom-1742646822 .shape-fill {
   fill: #6b2923c9;
+}
+
+
+/* Contenedor principal que posiciona todo en el centro */
+.contenedor-idea {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  rotate: -48deg;
+  top: 15rem;
+  right: 18rem;
+}
+
+
+/* Contenedor de las líneas */
+.lineas-expresivas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Estilo base para cada línea cómica */
+
+.linea-idea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  /* Centra la línea horizontalmente */
+  align-items: flex-start;
+  /* Coloca la línea en el borde superior */
+
+  /* Se rota cada eje usando la variable HTML, manteniendo el centro intacto */
+  transform: rotate(var(--giro));
+  /* Punto de pivote en el centro exacto del contenedor de 200x200 */
+  transform-origin: 100px 100px;
+}
+
+.linea {
+  position: absolute;
+  font-size: 20px;
+  /* Amarillo vibrante de dibujo animado */
+  border-radius: 50% 50% 0 0;
+  /* Extremo exterior redondeado, base plana */
+
+  /* Animación rápida de explosión */
+  animation: explosionSimultanea 0.6s cubic-bezier(0.1, 0.9, 0.2, 1) infinite;
+  animation-delay: 5s;
+  opacity: 0;
+
+  /* Punto de pivote en el centro exacto del contenedor de 200x200 */
+
+  &.l1 {
+    top: 5rem;
+    left: 14rem;
+    transform-origin: bottom center;
+    rotate: 27deg !important;
+  }
+
+  /* Líneas Diagonales Superiores */
+  &.l2 {
+    top: 2rem;
+    left: 12rem;
+    transform: rotate(0deg) !important;
+  }
+
+  &.l3 {
+    top: 3.5rem;
+    right: 3.5rem;
+    transform: rotate(-29deg) !important;
+  }
+
+  &.l4 {
+    top: 7rem;
+    left: 8rem;
+    rotate: -48deg !important;
+  }
+
+  &.l5 {
+    top: 9rem;
+    left: 7rem;
+    rotate: -69deg !important;
+  }
+
+
 }
