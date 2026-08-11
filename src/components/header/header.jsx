@@ -1,4 +1,4 @@
-import "./Header.scss";
+import "./header.scss";
 
 const Header = (params) => {
   const { scroll } = params;
