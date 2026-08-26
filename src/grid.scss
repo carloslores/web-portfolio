@@ -29,12 +29,22 @@
   padding: 5rem 0;
 }
 
+.p-y-2 {
+  padding: 2rem 0;
+}
+
+.extra-left-padding {
+    padding-left: 56px !important;
+  }
+.extra-extra-left-padding {
+    padding-left: 96px !important;
+  }
 /* Filas */
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 /* Columnas base */

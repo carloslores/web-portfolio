@@ -11,7 +11,7 @@
 #projects {
   background: rgb(22, 21, 15);
   color: rgb(236, 234, 228);
-  padding: 120px 40px 140px 88px;
+  padding: 40px 264px 140px 40px;
   min-height: 120vh;
   margin-top: -1rem;
 
@@ -73,9 +73,10 @@
     filter: none;
 
     .card-image-container {
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 14 / 10;
       overflow: hidden;
       background: rgb(15, 14, 10);
+      position: relative;
 
       img {
         width: 100%;
@@ -83,7 +84,17 @@
         object-fit: cover;
         display: block;
         transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+         mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
       }
+      h3 {position: absolute;
+          bottom: 1rem;
+          left: 2rem;
+         display: flex;
+         justify-content: space-between;
+          width: 88%;
+      }
+      
     }
 
     .info-project-container {

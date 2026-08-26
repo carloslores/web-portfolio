@@ -210,15 +210,20 @@
     mix-blend-mode: lighten;
   }
 
-  .icons {
+  .btn-group {
     display: flex;
     width: 30%;
     justify-content: space-evenly;
     height: fit-content;
+     gap: 1rem;
   }
 
   .cards-container {
     min-height: 380px;
+  }
+
+  .hero-contact-container {
+    gap: 1rem;
   }
 }
 

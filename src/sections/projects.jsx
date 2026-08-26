@@ -5,8 +5,17 @@ const Projects = () => {
   const projectRefs = useRef([]);
   const projects = [
     {
+      link: "https://esimflag.com/",
+      image: "/esimflag.png",
+      logo: "toyota_logo.svg",
+      enterprise: "Esimflag",
+      title: "Toyota VO",
+      tech: ["react", "html", "css"],
+      description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
+    },
+    {
       link: "https://www.toyota.es/coches-segunda-mano",
-      image: "/toyota-vo.png",
+      image: "/toyota-light.png",
       logo: "toyota_logo.svg",
       enterprise: "Toyota",
       title: "Toyota VO",
@@ -14,17 +23,8 @@ const Projects = () => {
       description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
     },
     {
-      link: "https://www.toyota.com/espanol/payment-estimator/",
-      image: "/toyota-cal-card.png",
-      logo: "toyota_logo.svg",
-      enterprise: "Toyota",
-      title: "Toyota Estimator",
-      tech: ["react", "html", "css"],
-      description: "Simulador paso a paso con validación en tiempo real y cálculo de cuota. Formularios complejos que no marean al usuario.",
-    },
-    {
       link: "https://www.lexusauto.es/lexus-seminuevos",
-      image: "/lexus-vo-card.png",
+      image: "/lexus.png",
       logo: "lexus-logo-silver.png",
       enterprise: "Lexus",
       title: "Lexus VO",
@@ -32,7 +32,7 @@ const Projects = () => {
     },
     {
       link: "https://www.financieraelcorteingles.es/es/solicitar-tarjeta/evolve-onboarding/wizard/step1/welcome",
-      image: "/corte-ingles-card.png",
+      image: "/eci-financiera.png",
       logo: "Logo_Corte_Ingles.svg",
       enterprise: "El Corte Inglés",
       title: "Evolve",
@@ -40,7 +40,7 @@ const Projects = () => {
     },
     {
       link: "https://www.mutua.es/seguros-coche/calcular/chat/",
-      image: "/cotizador-motor-card.png",
+      image: "/mutua-madrilena.png",
       logo: "mutua-logo.png",
       enterprise: "Mutua",
       title: "Cotizador",
@@ -48,23 +48,15 @@ const Projects = () => {
     },
     {
       link: "https://www.mutua.es/fondo-inversion-mas-rentables/",
-      image: "/mutua-ahorro.png",
+      image: "/mutuactivos.png",
       logo: "mutua-logo.png",
       enterprise: "Mutua",
       title: "Fondos de inversión",
       tech: ["angular", "typescript", "html", "css"],
     },
     {
-      link: "https://www.re-group.es/",
-      image: "/proyecto_regroup.jpg",
-      logo: "_re-logo.svg",
-      enterprise: "Re-group",
-      title: "Estudio de arquitectura",
-      tech: ["react", "html", "css"],
-    },
-    {
       link: "https://www.superefectivo.com/",
-      image: "/superefectivo-card.png",
+      image: "/superefectivo.png",
       logo: "superefectivo.png",
       enterprise: "Superefectivo",
       title: "Superefectivo",
@@ -99,7 +91,7 @@ const Projects = () => {
   return (
     <section id="projects">
 
-      <div className="container">
+      <div className="container extra-left-padding">
         <div className="row">
           <div className="col-6 align-items-center">
             <h2>
@@ -123,7 +115,7 @@ const Projects = () => {
           {projects.map((project, i) => (
 
             <div
-              className="align-items-center fade-in-up p-y-5 "
+              className="align-items-center fade-in-up p-y-2"
               key={i}
               ref={(el) => (projectRefs.current[i] = el)}
             //style={i % 2 === 0 ? { marginLeft: "10rem" } : {}}
@@ -132,8 +124,10 @@ const Projects = () => {
 
                 <div className="card-image-container">
                   <img src={process.env.PUBLIC_URL + project.image} className="card__image" alt="" />
+                  <h3>{project.title} <span>{'>'}</span></h3>
+                
                 </div>
-                <div className="info-project-container">
+                {/* <div className="info-project-container">
                   <div className="d-flex align-items-center">
                     <span className="enterprise-name">{project.enterprise}</span>
                     <span className="line-project"></span>
@@ -146,7 +140,7 @@ const Projects = () => {
                       <span className="tech-icon" key={index} >{icon}</span>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </article>
             </div>
           ))}

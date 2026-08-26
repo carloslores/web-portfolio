@@ -1,10 +1,14 @@
+[data-railwrap] {
+    overflow-x: hidden;
+}
+
 [data-rail] .test {
     position: absolute;
     top: 0px;
     right: -10px;
     width: 132px;
     height: auto;
-    margin: -106px 0px 0px -66px;
+    margin: -106px 0px 0px 0;
     opacity: 1;
     filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 20px 26px);
     transition: opacity 0.45s;

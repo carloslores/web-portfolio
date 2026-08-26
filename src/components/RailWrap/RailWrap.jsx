@@ -196,18 +196,18 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
 
     return (
         <div ref={rootRef} data-railwrap="1" style={{ position: "relative" }}>
-            <div data-rail="1" aria-hidden="true" style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "500px", pointerEvents: "none", zIndex: 6 }}>
+            <div data-rail="1" aria-hidden="true" style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "240px", pointerEvents: "none", zIndex: 6 }}>
                 <svg viewBox="0 0 100 1000" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", overflow: "visible" }}>
                     <path d="M 50 0 C 78 60, 22 112, 50 172 S 82 262, 44 334 S 20 432, 58 504 S 80 604, 40 674 S 20 782, 54 854 S 76 934, 50 1000" fill="none" stroke="rgba(212,55,47,.22)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
                     <path data-rail-path="1" d="M 50 0 C 78 60, 22 112, 50 172 S 82 262, 44 334 S 20 432, 58 504 S 80 604, 40 674 S 20 782, 54 854 S 76 934, 50 1000" fill="none" stroke="#d4372f" strokeWidth="2.5" strokeLinecap="round" pathLength="1" strokeDasharray="1" strokeDashoffset="1" vectorEffect="non-scaling-stroke" />
                 </svg>
 
                 {!showCoder ?
-                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "89px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}>
+                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}>
                         <img src={process.env.PUBLIC_URL + "/brain.png"} alt="" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} />
                     </div>
                     :
-                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "89px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} >
+                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} >
 
                         <img className="fire"
                             src={process.env.PUBLIC_URL + "/fire.gif"}
