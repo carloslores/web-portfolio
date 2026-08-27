@@ -12,7 +12,7 @@ const Header = (params) => {
         <a href="#welcome">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a>Contact</a>
+        <a href="#contact">Contact</a>
         <button className="btn btn-secondary">Hire</button>
       </span>
     </nav>

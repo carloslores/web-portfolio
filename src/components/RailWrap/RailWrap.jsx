@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./RailWrap.scss";
 import About from "../../sections/about";
 import Projects from "../../sections/projects";
@@ -8,6 +8,8 @@ import Contact from "../../sections/contact";
 import { useGlobal } from "../../contexts/GlobalContext";
 
 
+
+const ids = ['welcome', 'about', 'projects', 'services', 'contact'];
 
 const RailWrap = ({ showClients = true, showStack = true }) => {
     const rootRef = useRef(null);
@@ -34,8 +36,7 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
         if (empty) empty.style.display = shown ? 'none' : 'block';
     };
 
-    const [elementoActivo, setElementoActivo] = useState('');
-    const ids = ['welcome', 'about', 'projects', 'services', 'contact'];
+    const elementoActivoRef = useRef('');
 
     useEffect(() => {
         const manejarScroll = () => {
@@ -55,7 +56,7 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                 // 3. Si la parte superior del elemento cruzó el límite (ej. top 100px)
                 // y su parte inferior aún no ha salido por arriba, es el elemento activo
                 if (posicion.top <= 100 && posicion.bottom > 100) {
-                    setElementoActivo(id);
+                    elementoActivoRef.current = id;
                     break; // Detiene el bucle al encontrar el primero visible
                 }
             }
@@ -69,47 +70,48 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
 
         // Limpiamos el evento al desmontar el componente
         return () => window.removeEventListener('scroll', manejarScroll);
-    }, []);
+    }, [setShowCoder]);
 
     useEffect(() => {
         const el = rootRef.current;
-        if (!el) return;
+        if (!el) return undefined;
+
+        const timeoutIds = [];
 
         // ── setupReveal ──────────────────────────────────────────────────────
-        let io = null;
-        if ('IntersectionObserver' in window) {
-            const nodes = el.querySelectorAll('[data-reveal]');
-            io = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'none';
-                        entry.target.style.filter = 'none';
-                        io.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-
-            nodes.forEach((n, i) => {
-                const below = n.getBoundingClientRect().top > window.innerHeight * 0.9;
-                if (below) {
-                    n.style.opacity = '0';
-                    n.style.transform = 'translateY(34px)';
-                    n.style.filter = 'blur(4px)';
-                    n.style.transition =
-                        'opacity .75s ease ' + ((i % 3) * 0.07) + 's, ' +
-                        'transform .75s cubic-bezier(.2,.7,.2,1) ' + ((i % 3) * 0.07) + 's, ' +
-                        'filter .75s ease';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'none';
+                    entry.target.style.filter = 'none';
+                    observer.unobserve(entry.target);
                 }
-                io.observe(n);
             });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+        const nodes = el.querySelectorAll('[data-reveal]');
+        let nodeIdx = 0;
+        for (const n of nodes) {
+            const below = n.getBoundingClientRect().top > window.innerHeight * 0.9;
+            if (below) {
+                n.style.opacity = '0';
+                n.style.transform = 'translateY(34px)';
+                n.style.filter = 'blur(4px)';
+                n.style.transition =
+                    'opacity .75s ease ' + ((nodeIdx % 3) * 0.07) + 's, ' +
+                    'transform .75s cubic-bezier(.2,.7,.2,1) ' + ((nodeIdx % 3) * 0.07) + 's, ' +
+                    'filter .75s ease';
+            }
+            nodeIdx++;
+            observer.observe(n);
         }
 
         // ── setupScroll ──────────────────────────────────────────────────────
         const q = (s) => el.querySelector(s);
         const nav = q('[data-nav]');
         const bar = q('[data-progress]');
-        const wrap = el; // el propio rootRef ES data-railwrap
+        const wrap = el;
         const railPath = q('[data-rail-path]');
         const dot = q('[data-rail-dot]');
         const heroImg = q('[data-par]');
@@ -188,11 +190,12 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
         window.addEventListener('resize', onScroll);
 
         return () => {
+            observer.disconnect();
             window.removeEventListener('scroll', onScroll);
             window.removeEventListener('resize', onScroll);
-            if (io) io.disconnect();
+            for (const id of timeoutIds) clearTimeout(id);
         };
-    }, []);
+    }, [setShowCoder]);
 
     return (
         <div ref={rootRef} data-railwrap="1" style={{ position: "relative" }}>
@@ -203,24 +206,23 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                 </svg>
 
                 {!showCoder ?
-                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}>
-                        <img src={process.env.PUBLIC_URL + "/brain.png"} alt="" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} />
+                <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }}>
+                        <img src={process.env.PUBLIC_URL + "/brain.png"} alt="" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
                     </div>
                     :
-                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} >
+                    <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} >
 
                         <img className="fire"
                             src={process.env.PUBLIC_URL + "/fire.gif"}
-                            alt="" style={{ position: "absolute", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
-
+                            alt=""
+                            style={{ position: "absolute", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }}
                         />
-                        <img className="smoke" src={process.env.PUBLIC_URL + "/smoke.gif"} alt="" style={{ position: "absolute", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} />
-                        <img className="eyes vibrate" src={process.env.PUBLIC_URL + "/eyes.png"} style={{ position: "absolute", top: 0, height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }} />
+                        <img className="smoke" src={process.env.PUBLIC_URL + "/smoke.gif"} alt="" style={{ position: "absolute", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
+                        <img className="eyes vibrate" src={process.env.PUBLIC_URL + "/eyes.png"} alt="" style={{ position: "absolute", top: 0, height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
                         <img
-
                             src={process.env.PUBLIC_URL + "/coder-down.png"}
                             alt=""
-                            style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease", willChange: "transform" }}
+                            style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }}
                         />
                     </div>
 
@@ -229,23 +231,23 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
             </div>
             <About />
             <div data-dc-tpl="84" data-ribbon="1" data-sec="1" style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "34px 0px 34px 88px", borderTop: "1px solid rgb(214, 210, 199)", borderBottom: "1px solid rgb(214, 210, 199)" }}>
-                <div data-dc-tpl="85" data-ribbon-track="1" style={{ display: "inline-flex", alignItems: "center", gap: "44px", fontFamily: "Anton, sans-serif", textTransform: "lowercase", fontSize: "clamp(38px, 6.5vw, 92px)", lineHeight: "1", color: "rgb(22, 21, 15)", willChange: "transform", transform: "translate3d(-720px, 0px, 0px)" }}>
+                <div data-dc-tpl="85" data-ribbon-track="1" style={{ display: "inline-flex", alignItems: "center", gap: "44px", fontFamily: "Anton, sans-serif", textTransform: "lowercase", fontSize: "clamp(38px, 6.5vw, 92px)", lineHeight: "1", color: "rgb(22, 21, 15)", transform: "translate3d(-720px, 0px, 0px)" }}>
                     <span data-dc-tpl="86">react</span><span data-dc-tpl="87" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="88">angular</span><span data-dc-tpl="89" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="90">typescript</span><span data-dc-tpl="91" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="92">animación</span><span data-dc-tpl="93" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="94">rendimiento</span><span data-dc-tpl="95" style={{ color: "rgb(212, 55, 47)" }}>/</span>
                     <span data-dc-tpl="96">react</span><span data-dc-tpl="97" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="98">angular</span><span data-dc-tpl="99" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="100">typescript</span><span data-dc-tpl="101" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="102">animación</span><span data-dc-tpl="103" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="104">rendimiento</span><span data-dc-tpl="105" style={{ color: "rgb(212, 55, 47)" }}>/</span>
                 </div>
             </div>
-            <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="none" xmlns="http://www.w3.org/2000/svg" marginTop="2rem">
-                <g clip-path="url(#clip0_213_2780)">
+            <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginTop: "2rem" }}>
+                <g clipPath="url(#clip0_213_2780)">
                     <g filter="url(#filter0_g_213_2780)">
-                        <path d="M2437.62 112.088L2381.62 112.306C1606.78 115.31 854.364 122.328 463.232 125.977L445.164 126.146C59.7545 129.74 52.1082 129.745 44.5684 129.745H-11.4316V17.7451H44.5684C51.4158 17.7451 58.157 17.7498 444.119 14.1504L462.188 13.9814C853.316 10.3328 1606.01 3.3112 2381.18 0.305664L2437.18 0.0888672L2437.62 112.088Z" fill="rgb(22, 21, 15)"></path>
+                        <path d="M2437.6 112.1L2381.6 112.3C1606.8 115.3 854.4 122.3 463.2 126L445.2 126.1C59.8 129.7 52.1 129.7 44.6 129.7H-11.4V17.7H44.6C51.4 17.7 58.2 17.7 444.1 14.2L462.2 14C853.3 10.3 1606 3.3 2381.2 0.3L2437.2 0.1L2437.6 112.1Z" fill="rgb(22, 21, 15)" />
                     </g>
                     <rect x="0" y="46" width="100%" height="100%" fill="rgb(22, 21, 15)"></rect>
                 </g>
                 <defs>
-                    <filter id="filter0_g_213_2780" x="0" y="-13.9111" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                    <filter id="filter0_g_213_2780" x="0" y="-13.9" width="2477.1" height="157.7" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                        <feTurbulence type="fractalNoise" baseFrequency="0.0099999997764825821 0.0099999997764825821" numOctaves="3" seed="3267"></feTurbulence>
+                        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="3" seed="3267"></feTurbulence>
                         <feDisplacementMap in="shape" scale="28" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%"></feDisplacementMap>
                         <feMerge result="effect1_texture_213_2780">
                             <feMergeNode in="displacedImage"></feMergeNode>
@@ -263,7 +265,7 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                 <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="rgb(22, 21, 15)" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_213_2781)">
                         <g filter="url(#filter0_g_213_2781)">
-                            <path d="M-8.61522 31.9119L47.3848 31.6941C822.216 28.69 1574.64 21.672 1965.77 18.0234L1983.84 17.8545C2369.25 14.2603 2376.89 14.2549 2384.43 14.2549L2440.43 14.2549L2440.43 126.255L2384.43 126.255C2377.58 126.255 2370.84 126.25 1984.88 129.85L1966.81 130.019C1575.68 133.667 822.989 140.689 47.8193 143.694L-8.18066 143.911L-8.61522 31.9119Z" fill="rgb(22, 21, 15)"></path>
+                            <path d="M-8.6 31.9L47.4 31.7C822.2 28.7 1574.6 21.7 1965.8 18L1983.8 17.9C2369.2 14.3 2376.9 14.3 2384.4 14.3H2440.4V126.3H2384.4C2377.6 126.3 2370.8 126.3 1984.9 129.9L1966.8 130C1575.7 133.7 823 140.7 47.8 143.7L-8.2 143.9L-8.6 31.9Z" fill="rgb(22, 21, 15)"></path>
                         </g>
                         <rect x="0" y="98" width="2449" height="98" transform="rotate(-180 2440 98)" fill="rgb(22, 21, 15)currentColor"></rect>
                     </g>

@@ -9,12 +9,11 @@ import RailWrap from "./components/RailWrap/RailWrap";
 function App() {
   const hasRun = useRef(false);
   const [navBg, setNavBg] = useState(false);
-  const [showRail, setShowRail] = useState(false);
+  const showRailRef = useRef(false);
 
   const changeNavBg = () => {
     window.scrollY >= 100 ? setNavBg(true) : setNavBg(false);
-    window.scrollY >= 500 ? setShowRail(true) : setShowRail(false);
-
+    showRailRef.current = window.scrollY >= 500;
   };
 
   useEffect(() => {

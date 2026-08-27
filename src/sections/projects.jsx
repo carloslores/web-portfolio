@@ -1,9 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./projects.scss";
 
-const Projects = () => {
-  const projectRefs = useRef([]);
-  const projects = [
+const projects = [
     {
       link: "https://esimflag.com/",
       image: "/esimflag.png",
@@ -62,17 +60,22 @@ const Projects = () => {
       title: "Superefectivo",
       tech: ["js", "html", "css"],
     },
-  ]
+  ];
+
+const Projects = () => {
+  const projectRefs = useRef([]);
 
   useEffect(() => {
+    const timeoutIds = [];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            // Agrega clase visible con retardo basado en índice
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
               entry.target.classList.add("visible");
-            }, index * 200); // desfase de 200ms por cada tarjeta
+            }, index * 200);
+
+            timeoutIds.push(timeoutId);
             observer.unobserve(entry.target);
           }
         });
@@ -82,11 +85,14 @@ const Projects = () => {
       }
     );
 
-    projectRefs.current.forEach((el) => {
+    for (const el of projectRefs.current) {
       if (el) observer.observe(el);
-    });
+    }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      for (const id of timeoutIds) clearTimeout(id);
+    };
   }, []);
   return (
     <section id="projects">
@@ -116,7 +122,7 @@ const Projects = () => {
 
             <div
               className="align-items-center fade-in-up p-y-2"
-              key={i}
+              key={project.link || project.title}
               ref={(el) => (projectRefs.current[i] = el)}
             //style={i % 2 === 0 ? { marginLeft: "10rem" } : {}}
             >

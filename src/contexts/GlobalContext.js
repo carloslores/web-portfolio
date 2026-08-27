@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
 
 const GlobalContext = createContext();
 
@@ -17,9 +17,13 @@ export const GlobalProvider = ({ children }) => {
   }, [isLightMode]);
 
   const toggleDarkMode = () => setisLightMode((prev) => !prev);
+  const value = useMemo(
+    () => ({ isLightMode, toggleDarkMode, showCoder, setShowCoder }),
+    [isLightMode, showCoder]
+  );
 
   return (
-    <GlobalContext.Provider value={{ isLightMode, toggleDarkMode, showCoder, setShowCoder }}>
+    <GlobalContext.Provider value={value}>
       {children}
     </GlobalContext.Provider>
   );

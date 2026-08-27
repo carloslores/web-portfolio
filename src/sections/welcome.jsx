@@ -1,21 +1,27 @@
 
 import "./welcome.scss";
-import { useGlobal } from "../contexts/GlobalContext";
 import { useEffect } from "react";
 
 const Welcome = () => {
-  const { isLightMode } = useGlobal();
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
+      const brain = document.getElementById("brain-up");
+      if (!brain) return;
+
       if (window.scrollY >= 100) {
-        document.getElementById("brain-up").classList.add("rotate-out-bl");
-        document.getElementById("brain-up").classList.remove("vibrate");
+        brain.classList.add("rotate-out-bl");
+        brain.classList.remove("vibrate");
       } else {
-        document.getElementById("brain-up").classList.remove("rotate-out-bl");
-        document.getElementById("brain-up").classList.add("vibrate");
+        brain.classList.remove("rotate-out-bl");
+        brain.classList.add("vibrate");
       }
-    })
-  }, [])
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
