@@ -27,7 +27,7 @@ const Welcome = () => {
     <>
       <section id="welcome" className="container container-padding">
         <div className="welcome-section-container row no-row-mb">
-          <div className="col-7 d-flex align-items-center">
+          <div className="col-7 col-md-12 d-flex align-items-center">
             <div className="left">
               <div className="pre-title">
                 <span className="dot-animation">
@@ -49,7 +49,7 @@ const Welcome = () => {
               </p>
 
               <div className="hero-contact-container d-flex no-flex-mb">
-                <button className="btn btn-primary">Ver mi trabajo  <span data-dc-tpl="48" style={{fontFamily: '"JetBrains Mono", monospace'}}>↓</span></button>
+                <button className="btn btn-primary">Ver mi trabajo  <span data-dc-tpl="48" style={{ fontFamily: '"JetBrains Mono", monospace' }}>↓</span></button>
                 <div className="btn-group">
                   <a
                     className="btn btn-tertiary"
@@ -65,7 +65,7 @@ const Welcome = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                   LinkedIn
+                    LinkedIn
                   </a>
                 </div>
               </div>

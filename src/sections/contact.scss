@@ -4,11 +4,20 @@
     padding: 130px 40px 60px;
     margin-top: -1rem;
 
+    @media (max-width: 1024px) {
+        padding: 130px 20px 60px;
+    }
+
     .main-container {
         display: grid;
         grid-template-columns: 1.1fr 0.9fr;
         gap: 60px;
         align-items: end;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 1fr !important;
+            gap: 28px !important;
+        }
 
         h2 {
             font-family: Anton, sans-serif;

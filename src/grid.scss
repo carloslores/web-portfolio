@@ -33,12 +33,29 @@
   padding: 2rem 0;
 }
 
+.p-0-md-right {
+  @media (max-width: 1024px) {
+    padding-right: 0 !important;
+  }
+}
+
+
 .extra-left-padding {
-    padding-left: 56px !important;
+  padding-left: 56px !important;
+
+  @media screen and (max-width: 1024px) {
+    padding-left: 0 !important;
   }
+}
+
 .extra-extra-left-padding {
-    padding-left: 96px !important;
+  padding-left: 96px !important;
+
+  @media screen and (max-width: 1024px) {
+    padding-left: 20px !important;
   }
+}
+
 /* Filas */
 .row {
   display: flex;

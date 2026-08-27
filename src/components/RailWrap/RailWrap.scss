@@ -2,6 +2,20 @@
     overflow-x: hidden;
 }
 
+.rail {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 240px;
+    pointer-events: none;
+    z-index: 6;
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
 [data-rail] .test {
     position: absolute;
     top: 0px;

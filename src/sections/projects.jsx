@@ -2,65 +2,65 @@ import { useEffect, useRef } from "react";
 import "./projects.scss";
 
 const projects = [
-    {
-      link: "https://esimflag.com/",
-      image: "/esimflag.png",
-      logo: "toyota_logo.svg",
-      enterprise: "Esimflag",
-      title: "Toyota VO",
-      tech: ["react", "html", "css"],
-      description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
-    },
-    {
-      link: "https://www.toyota.es/coches-segunda-mano",
-      image: "/toyota-light.png",
-      logo: "toyota_logo.svg",
-      enterprise: "Toyota",
-      title: "Toyota VO",
-      tech: ["react", "html", "css"],
-      description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
-    },
-    {
-      link: "https://www.lexusauto.es/lexus-seminuevos",
-      image: "/lexus.png",
-      logo: "lexus-logo-silver.png",
-      enterprise: "Lexus",
-      title: "Lexus VO",
-      tech: ["react", "html", "css"],
-    },
-    {
-      link: "https://www.financieraelcorteingles.es/es/solicitar-tarjeta/evolve-onboarding/wizard/step1/welcome",
-      image: "/eci-financiera.png",
-      logo: "Logo_Corte_Ingles.svg",
-      enterprise: "El Corte Inglés",
-      title: "Evolve",
-      tech: ["node", "typescript", "html", "css"],
-    },
-    {
-      link: "https://www.mutua.es/seguros-coche/calcular/chat/",
-      image: "/mutua-madrilena.png",
-      logo: "mutua-logo.png",
-      enterprise: "Mutua",
-      title: "Cotizador",
-      tech: ["angular", "typescript", "html", "css"],
-    },
-    {
-      link: "https://www.mutua.es/fondo-inversion-mas-rentables/",
-      image: "/mutuactivos.png",
-      logo: "mutua-logo.png",
-      enterprise: "Mutua",
-      title: "Fondos de inversión",
-      tech: ["angular", "typescript", "html", "css"],
-    },
-    {
-      link: "https://www.superefectivo.com/",
-      image: "/superefectivo.png",
-      logo: "superefectivo.png",
-      enterprise: "Superefectivo",
-      title: "Superefectivo",
-      tech: ["js", "html", "css"],
-    },
-  ];
+  {
+    link: "https://esimflag.com/",
+    image: "/esimflag.png",
+    logo: "toyota_logo.svg",
+    enterprise: "Esimflag",
+    title: "Toyota VO",
+    tech: ["react", "html", "css"],
+    description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
+  },
+  {
+    link: "https://www.toyota.es/coches-segunda-mano",
+    image: "/toyota-light.png",
+    logo: "toyota_logo.svg",
+    enterprise: "Toyota",
+    title: "Toyota VO",
+    tech: ["react", "html", "css"],
+    description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
+  },
+  {
+    link: "https://www.lexusauto.es/lexus-seminuevos",
+    image: "/lexus.png",
+    logo: "lexus-logo-silver.png",
+    enterprise: "Lexus",
+    title: "Lexus VO",
+    tech: ["react", "html", "css"],
+  },
+  {
+    link: "https://www.financieraelcorteingles.es/es/solicitar-tarjeta/evolve-onboarding/wizard/step1/welcome",
+    image: "/eci-financiera.png",
+    logo: "Logo_Corte_Ingles.svg",
+    enterprise: "El Corte Inglés",
+    title: "Evolve",
+    tech: ["node", "typescript", "html", "css"],
+  },
+  {
+    link: "https://www.mutua.es/seguros-coche/calcular/chat/",
+    image: "/mutua-madrilena.png",
+    logo: "mutua-logo.png",
+    enterprise: "Mutua",
+    title: "Cotizador",
+    tech: ["angular", "typescript", "html", "css"],
+  },
+  {
+    link: "https://www.mutua.es/fondo-inversion-mas-rentables/",
+    image: "/mutuactivos.png",
+    logo: "mutua-logo.png",
+    enterprise: "Mutua",
+    title: "Fondos de inversión",
+    tech: ["angular", "typescript", "html", "css"],
+  },
+  {
+    link: "https://www.superefectivo.com/",
+    image: "/superefectivo.png",
+    logo: "superefectivo.png",
+    enterprise: "Superefectivo",
+    title: "Superefectivo",
+    tech: ["js", "html", "css"],
+  },
+];
 
 const Projects = () => {
   const projectRefs = useRef([]);
@@ -97,25 +97,13 @@ const Projects = () => {
   return (
     <section id="projects">
 
-      <div className="container extra-left-padding">
-        <div className="row">
-          <div className="col-6 align-items-center">
-            <h2>
-              cosas que
-              <br />
-              he construido
+      <div className="container extra-left-padding p-0-md-right">
+        <h2>
+          cosas que
+          <br />
+          he construido
 
-            </h2>
-          </div>
-          <div className="col-6 align-items-center">
-            <button className="btn-project-filter active">Todo</button>
-            <button className="btn-project-filter">React</button>
-            <button className="btn-project-filter">Angular</button>
-            <button className="btn-project-filter">TypeScript</button>
-            <button className="btn-project-filter">Ecommerce</button>
-          </div>
-
-        </div>
+        </h2>
 
         <div className="projects-container">
           {projects.map((project, i) => (
@@ -131,7 +119,7 @@ const Projects = () => {
                 <div className="card-image-container">
                   <img src={process.env.PUBLIC_URL + project.image} className="card__image" alt="" />
                   <h3>{project.title} <span>{'>'}</span></h3>
-                
+
                 </div>
                 {/* <div className="info-project-container">
                   <div className="d-flex align-items-center">

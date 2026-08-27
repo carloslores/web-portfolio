@@ -53,9 +53,9 @@
     top: 20rem;
     right: 19rem;
 
-    @media(max-width: 768px) {
-      right: 11rem;
-      top: 28rem;
+    @media(max-width: 1024px) {
+      right: 9rem;
+      top: 33rem;
     }
 
     &:before,
@@ -92,6 +92,12 @@
       animation-duration: .8s;
       animation-delay: 5s;
       opacity: 0;
+
+      @media(max-width: 1024px) {
+        left: -5.7rem;
+        width: 134px;
+        top: 8rem;
+      }
     }
 
     .coder-img {
@@ -106,10 +112,20 @@
         animation: rotar90 1s ease-in-out forwards;
         transform-origin: right center;
         animation-delay: 4s;
+
+        @media(max-width: 1024px) {
+          width: 140px;
+          top: -52px;
+          right: -117px;
+        }
       }
 
       &.down-image {
         width: 330px;
+
+        @media(max-width: 1024px) {
+          width: 258px;
+        }
       }
 
       &.brain {
@@ -117,6 +133,12 @@
         width: 166px;
         top: -63px;
         right: -143px;
+
+        @media(max-width: 1024px) {
+          width: 125px;
+          top: -47px;
+          right: -110px;
+        }
 
         &.rotate-out-bl {
           -webkit-animation: bounce-out-bottom 1.5s both;
@@ -215,7 +237,16 @@
     width: 30%;
     justify-content: space-evenly;
     height: fit-content;
-     gap: 1rem;
+    gap: 1rem;
+
+    @media(max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 14px;
+      width: 179px;
+      text-align: center;
+    }
   }
 
   .cards-container {
@@ -397,6 +428,12 @@ p {
   rotate: -48deg;
   top: 15rem;
   right: 18rem;
+
+  @media(max-width: 1024px) {
+    top: 29rem;
+    right: 7rem;
+
+  }
 }
 
 

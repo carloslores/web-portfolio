@@ -2,6 +2,10 @@
     background-color: rgb(22, 21, 15);
     padding: 120px 40px 140px 88px;
 
+    @media (max-width: 1024px) {
+        padding: 20px;
+    }
+
     .stack-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

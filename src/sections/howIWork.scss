@@ -2,6 +2,10 @@
     background: rgb(22, 21, 15);
     padding: 40px 264px 140px 40px;
 
+    @media (max-width: 1024px) {
+        padding: 20px;
+    }
+
     h2 {
         font-family: Anton, sans-serif;
         font-weight: 400;
@@ -25,7 +29,7 @@
         filter: none;
         transition: opacity 0.75s 0.07s, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) 0.07s, filter 0.75s;
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             & {
                 grid-template-columns: 56px 1fr !important;
                 gap: 6px 16px !important;
@@ -60,7 +64,7 @@
             text-wrap: pretty;
             padding: 0;
 
-            @media (max-width: 900px) {
+            @media (max-width: 1024px) {
                 grid-column: 2 / -1 !important;
             }
         }

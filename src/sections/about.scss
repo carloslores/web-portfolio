@@ -16,7 +16,11 @@
 
   .more-info {
     margin-top: 50px;
-    gap: 40px
+    gap: 40px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
   }
 
   p {
