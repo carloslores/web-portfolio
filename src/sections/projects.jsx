@@ -98,6 +98,9 @@ const Projects = () => {
     <section id="projects">
 
       <div className="container extra-left-padding p-0-md-right">
+        <div className="pretitle">
+          03 — Proyectos
+        </div>
         <h2>
           cosas que
           <br />

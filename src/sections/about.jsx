@@ -1,12 +1,13 @@
-import { useEffect } from "react";
 import "./about.scss";
-import { useGlobal } from "../contexts/GlobalContext";
 
 const About = () => {
 
   return (
     <section id="about" className="container container-padding" style={{ height: "100vh" }}>
       <div className="col-8 col-md-12">
+        <div className="pretitle">
+          01 — Sobre mí
+        </div>
         <h2>
           ¿quién dijo que el front era solo maquetar?
         </h2>

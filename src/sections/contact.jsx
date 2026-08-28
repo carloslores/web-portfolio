@@ -3,7 +3,11 @@ import './contact.scss';
 const Contact = () => {
     return (
         <section className="section--contact" id="contact">
+
             <div className="container">
+                <div className="pretitle">
+                    05 — contacto
+                </div>
                 <div className="main-container">
                     <h2>hablemos</h2>
                     <div><p>

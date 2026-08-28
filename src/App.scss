@@ -125,6 +125,20 @@ body {
   max-height: 55px;
 }
 
+.pretitle {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(138, 133, 120);
+  position: sticky;
+  margin-bottom: 24px;
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: opacity 0.75s, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.75s;
+}
+
 .btn-primary {
   color: #fff;
 }

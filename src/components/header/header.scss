@@ -2,13 +2,15 @@
   display: flex;
   justify-content: space-between;
   color: #fff;
-  padding: 1rem 5rem;
+  padding: 16px 96px;
   position: fixed;
   width: 100%;
   z-index: 10;
 
   &.blur {
-    backdrop-filter: blur(45px);
+    border-bottom: 1px solid rgb(214, 210, 199);
+    background: rgba(236, 234, 228, 0.82);
+    backdrop-filter: blur(16px);
   }
 
   a {
@@ -26,7 +28,7 @@
     &:hover,
     &.active {
       font-weight: bold;
-      box-shadow: inset 0 -3px 0 #d4372f;
+      box-shadow: inset 0 -2px 0 #d4372f;
     }
   }
 
@@ -47,7 +49,6 @@
   }
 
   .container-text-and-btn {
-    width: 100%;
     display: flex;
     align-items: center;
 
@@ -55,6 +56,26 @@
       margin-left: 1rem;
     }
   }
+
+  .menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 48px;
+    height: 48px;
+    padding: 0px 12px;
+    margin: -4px -8px -4px 0px;
+    background: transparent;
+    border: 0px;
+    cursor: pointer;
+
+    @media (max-width: 1024px) {
+      display: flex !important;
+    }
+  }
+
+
 
   .links-container {
     align-items: center;
@@ -64,6 +85,10 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: rgb(22, 21, 15);
+
+    @media (max-width: 1024px) {
+      display: none !important;
+    }
   }
 
   h3 {
@@ -72,6 +97,55 @@
 
   .btn-primary {
     margin-left: 0.7rem;
+  }
+}
+
+.menu-panel {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-14px);
+
+  @media (max-width: 1024px) {
+    &.open {
+      position: fixed;
+      top: 79px !important;
+      inset: 0px;
+      z-index: 49;
+      background: rgb(22, 21, 15);
+      color: rgb(236, 234, 228);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 96px 24px 44px;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity 0.3s,
+        transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+        visibility 0.3s;
+
+      a {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        padding: 16px 0px;
+        border-bottom: 1px solid rgb(44, 42, 34);
+        font-family: Anton, sans-serif;
+        text-transform: lowercase;
+        font-size: 38px;
+        line-height: 1;
+        color: rgb(236, 234, 228);
+        text-decoration: none;
+
+        span {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 11px;
+          color: rgb(138, 133, 120);
+        }
+      }
+    }
   }
 }
 

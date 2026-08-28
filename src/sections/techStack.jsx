@@ -23,6 +23,9 @@ const stackAI = [
 const TechStack = () => {
     return (
         <section className="section--techStack" id="techStack">
+            <div className="pretitle">
+                04 — Stack
+            </div>
             <div className="stack-container">
                 {stackLogos.map((logo) => (
                     <div className="stack-card" key={logo.name}>

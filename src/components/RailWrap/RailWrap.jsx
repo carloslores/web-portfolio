@@ -263,15 +263,15 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
             <TechStack />
             <div style={{ color: "rgb(22, 21, 15)", marginBottom: "-3rem", inset: "auto -3rem 0%", width: "100%", marginTop: "-2rem" }}>
                 <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="rgb(22, 21, 15)" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_213_2781)">
+                    <g clipPath="url(#clip0_213_2781)">
                         <g filter="url(#filter0_g_213_2781)">
                             <path d="M-8.6 31.9L47.4 31.7C822.2 28.7 1574.6 21.7 1965.8 18L1983.8 17.9C2369.2 14.3 2376.9 14.3 2384.4 14.3H2440.4V126.3H2384.4C2377.6 126.3 2370.8 126.3 1984.9 129.9L1966.8 130C1575.7 133.7 823 140.7 47.8 143.7L-8.2 143.9L-8.6 31.9Z" fill="rgb(22, 21, 15)"></path>
                         </g>
                         <rect x="0" y="98" width="2449" height="98" transform="rotate(-180 2440 98)" fill="rgb(22, 21, 15)currentColor"></rect>
                     </g>
                     <defs>
-                        <filter id="filter0_g_213_2781" x="0" y="0.254883" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <filter id="filter0_g_213_2781" x="0" y="0.254883" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
                             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
                             <feTurbulence type="fractalNoise" baseFrequency="0.0099999997764825821 0.0099999997764825821" numOctaves="3" seed="3267"></feTurbulence>
                             <feDisplacementMap in="shape" scale="28" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%"></feDisplacementMap>

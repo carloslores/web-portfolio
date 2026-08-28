@@ -3,6 +3,9 @@ import "./howIWork.scss";
 const howIWork = () => {
     return (
         <section className="section--howIWork container extra-extra-left-padding" id="howIWork">
+            <div className="pretitle">
+                04 — stack
+            </div>
             <h2>por qué contar conmigo</h2>
             <div className="table-container">
                 <div className="reason-num">01</div>
