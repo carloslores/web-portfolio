@@ -1,9 +1,22 @@
 import "./Header.scss";
 import { useState } from "react";
+import { useGlobal } from "../../contexts/GlobalContext";
+
+const flagsImg = {
+  es: "/spain-flag.svg",
+  en: "/uk-flag.svg"
+}
+
+const flagComponent = (lang, toggleLanguage) => {
+  return <span className="lang-container-btn" onClick={toggleLanguage}> <img src={process.env.PUBLIC_URL + flagsImg[lang]} alt={lang} /></span>
+}
 
 const Header = (params) => {
   const { scroll } = params;
   const [openMenu, setOpenMenu] = useState(false);
+  const { t, lang, toggleLanguage } = useGlobal();
+  const header = t?.header || {};
+
   return (
     <>
       <nav className={`navbar${scroll ? " blur" : ""}`}>
@@ -11,28 +24,38 @@ const Header = (params) => {
           <h3 className="heebo">portfolio<span className="red-text">.</span></h3>
 
         </div>
-        <button className="menu-btn" data-dc-tpl="17" type="button" data-menubtn="1" aria-label="Abrir menú" aria-expanded="false" onClick={() => setOpenMenu(!openMenu)}>
-          <span data-dc-tpl="18" style={{ display: "block", height: "2px", width: "100%", background: "rgb(22, 21, 15)", borderRadius: "2px" }}></span>
-          <span data-dc-tpl="19" style={{ display: "block", height: "2px", width: "100%", background: "rgb(22, 21, 15)", borderRadius: "2px" }}></span>
-          <span data-dc-tpl="20" style={{ display: "block", height: "2px", width: "70%", background: "rgb(212, 55, 47)", borderRadius: "2px" }}></span>
-        </button>
+
+        <div className="btn-menu-mobile-container">
+          <div className={`flag-mobile ${openMenu ? "open" : ""}`}>
+            {flagComponent(lang, toggleLanguage)}
+          </div>
+          <button className="menu-btn" onClick={() => setOpenMenu(!openMenu)}>
+            <span style={{ display: "block", height: "2px", width: "100%", background: "rgb(22, 21, 15)", borderRadius: "2px" }}></span>
+            <span style={{ display: "block", height: "2px", width: "100%", background: "rgb(22, 21, 15)", borderRadius: "2px" }}></span>
+            <span style={{ display: "block", height: "2px", width: "70%", background: "rgb(212, 55, 47)", borderRadius: "2px" }}></span>
+          </button>
+        </div>
 
         <span className="links-container">
-          <a href="#about">Sobre mí</a>
-          <a href="#techStack">Stack</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#contact">Contacto</a>
-          <button className="btn btn-secondary">Contratame</button>
+          <a href="#about">{header.navAbout}</a>
+          <a href="#techStack">{header.navStack}</a>
+          <a href="#projects">{header.navProjects}</a>
+          <a href="#contact">{header.navContact}</a>
+          {flagComponent(lang, toggleLanguage)}
         </span>
+
       </nav>
+
       <div className={`menu-panel ${openMenu ? "open" : ""}`}>
-        <a href="#about"><span>01</span>Sobre mí</a>
-        <a href="#techStack"><span>02</span>Stack</a>
-        <a href="#projects"><span>03</span>Proyectos</a>
-        <a href="#contact"><span>04</span>Contacto</a>
-        <button className="btn btn-secondary">Contratame</button>
+        <a href="#about" onClick={() => setOpenMenu(false)}><span>01</span>{header.navAbout}</a>
+        <a href="#techStack" onClick={() => setOpenMenu(false)}><span>02</span>{header.navStack}</a>
+        <a href="#projects" onClick={() => setOpenMenu(false)}><span>03</span>{header.navProjects}</a>
+        <a href="#contact" onClick={() => setOpenMenu(false)}><span>04</span>{header.navContact}</a>
+
+
       </div></>
   );
 };
 
 export default Header;
+

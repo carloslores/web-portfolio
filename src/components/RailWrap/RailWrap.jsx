@@ -13,7 +13,7 @@ const ids = ['welcome', 'about', 'projects', 'services', 'contact'];
 
 const RailWrap = ({ showClients = true, showStack = true }) => {
     const rootRef = useRef(null);
-    const { showCoder, setShowCoder } = useGlobal();
+    const { showCoder, setShowCoder, t } = useGlobal();
 
     // filter puede llamarse desde el JSX, por lo que vive fuera del effect
     const filter = (e) => {
@@ -232,8 +232,12 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
             <About />
             <div data-dc-tpl="84" data-ribbon="1" data-sec="1" style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "34px 0px 34px 88px", borderTop: "1px solid rgb(214, 210, 199)", borderBottom: "1px solid rgb(214, 210, 199)" }}>
                 <div data-dc-tpl="85" data-ribbon-track="1" style={{ display: "inline-flex", alignItems: "center", gap: "44px", fontFamily: "Anton, sans-serif", textTransform: "lowercase", fontSize: "clamp(38px, 6.5vw, 92px)", lineHeight: "1", color: "rgb(22, 21, 15)", transform: "translate3d(-720px, 0px, 0px)" }}>
-                    <span data-dc-tpl="86">react</span><span data-dc-tpl="87" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="88">angular</span><span data-dc-tpl="89" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="90">typescript</span><span data-dc-tpl="91" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="92">animación</span><span data-dc-tpl="93" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="94">rendimiento</span><span data-dc-tpl="95" style={{ color: "rgb(212, 55, 47)" }}>/</span>
-                    <span data-dc-tpl="96">react</span><span data-dc-tpl="97" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="98">angular</span><span data-dc-tpl="99" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="100">typescript</span><span data-dc-tpl="101" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="102">animación</span><span data-dc-tpl="103" style={{ color: "rgb(212, 55, 47)" }}>/</span><span data-dc-tpl="104">rendimiento</span><span data-dc-tpl="105" style={{ color: "rgb(212, 55, 47)" }}>/</span>
+                    {(t?.ribbon || []).concat(t?.ribbon || []).map((item, idx) => (
+                        <React.Fragment key={idx}>
+                            <span>{item}</span>
+                            <span style={{ color: "rgb(212, 55, 47)" }}>/</span>
+                        </React.Fragment>
+                    ))}
                 </div>
             </div>
             <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginTop: "2rem" }}>

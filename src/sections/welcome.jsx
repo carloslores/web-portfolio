@@ -1,8 +1,12 @@
 
 import "./welcome.scss";
 import { useEffect } from "react";
+import { useGlobal } from "../contexts/GlobalContext";
 
 const Welcome = () => {
+  const { t } = useGlobal();
+  const welcome = t?.welcome || {};
+
   useEffect(() => {
     const handleScroll = () => {
       const brain = document.getElementById("brain-up");
@@ -33,23 +37,25 @@ const Welcome = () => {
                 <span className="dot-animation">
 
                 </span>
-                Frontend Developer · Madrid · Disponible
+                {welcome.preTitle}
               </div>
-              <h1> <div className="word-rise">interfaces</div>
-                <div className="second-word-rise">con {' '}
+              <h1> <div className="word-rise">{welcome.titleLine1}</div>
+                <div className="second-word-rise">{welcome.titleLine2With} {' '}
                   <span className="red-text" >
-                    carácter</span>
+                    {welcome.titleLine2Highlight}</span>
 
                 </div>
               </h1>
 
 
               <p>
-                Soy Carlos Lores. Construyo el front de productos que usa mucha gente: buscadores de coche, simuladores de ahorro, ecommerce. Código limpio, animación con criterio y cero plantillas.
+                {welcome.description}
               </p>
 
               <div className="hero-contact-container d-flex no-flex-mb">
-                <button className="btn btn-primary">Ver mi trabajo  <span data-dc-tpl="48" style={{ fontFamily: '"JetBrains Mono", monospace' }}>↓</span></button>
+                <a href="#projects" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                  {welcome.ctaWork}  <span data-dc-tpl="48" style={{ fontFamily: '"JetBrains Mono", monospace' }}>↓</span>
+                </a>
                 <div className="btn-group">
                   <a
                     className="btn btn-tertiary"
@@ -57,7 +63,7 @@ const Welcome = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GitHub
+                    {welcome.github}
                   </a>
                   <a
                     className="btn btn-tertiary"
@@ -65,10 +71,11 @@ const Welcome = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    LinkedIn
+                    {welcome.linkedin}
                   </a>
                 </div>
               </div>
+
 
 
             </div>
@@ -121,3 +128,4 @@ const Welcome = () => {
 };
 
 export default Welcome;
+

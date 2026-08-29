@@ -3,7 +3,6 @@ import Header from "./components/Header/Header";
 import "./App.scss";
 import Welcome from "./sections/welcome";
 import { GlobalProvider } from "./contexts/GlobalContext";
-import Projects from "./sections/projects";
 import RailWrap from "./components/RailWrap/RailWrap";
 
 function App() {

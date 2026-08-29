@@ -1,0 +1,135 @@
+{
+  "header": {
+    "logo": "portfolio",
+    "navAbout": "About me",
+    "navStack": "Stack",
+    "navProjects": "Projects",
+    "navContact": "Contact",
+    "ariaMenu": "Open menu"
+  },
+  "welcome": {
+    "preTitle": "Frontend Developer · Madrid · Available",
+    "titleLine1": "interfaces",
+    "titleLine2With": "with",
+    "titleLine2Highlight": "character",
+    "description": "I'm Carlos Lores. I build the frontend for high-traffic products: car search engines, savings simulators, e-commerce. Clean code, purposeful animation, and zero templates.",
+    "ctaWork": "See my work",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "about": {
+    "pretitle": "01 — About me",
+    "title": "who said frontend was just slicing designs?",
+    "paragraph1": "I work on real products, not demos. I have developed the pre-owned vehicle search engines for Lexus and Toyota, the savings and investment simulator for Mutua Madrileña, and digital components for El Corte Inglés. Real-traffic projects, real design, and real deadlines.",
+    "paragraph2": "I trained at Ironhack and haven't stopped tinkering since: React and Angular daily, TypeScript whenever possible, and an almost obsessive focus on making things feel fast. If something takes 300 ms extra, I notice.",
+    "stats": {
+      "projects": {
+        "value": "6+",
+        "label": "Projects in production"
+      },
+      "brands": {
+        "value": "5",
+        "label": "Major brands"
+      },
+      "responsive": {
+        "value": "100%",
+        "label": "Responsive, no excuses"
+      }
+    }
+  },
+  "ribbon": [
+    "react",
+    "angular",
+    "typescript",
+    "animation",
+    "performance"
+  ],
+  "projects": {
+    "pretitle": "03 — Projects",
+    "titleLine1": "things I've",
+    "titleLine2": "built",
+    "items": [
+      {
+        "id": "esimflag",
+        "enterprise": "Esimflag",
+        "title": "Toyota Pre-Owned",
+        "description": "Listing with combinable filters, vehicle comparison tool, and detail page. Search state synchronized with the URL to enable sharing results."
+      },
+      {
+        "id": "toyota",
+        "enterprise": "Toyota",
+        "title": "Toyota Pre-Owned",
+        "description": "Listing with combinable filters, vehicle comparison tool, and detail page. Search state synchronized with the URL to enable sharing results."
+      },
+      {
+        "id": "lexus",
+        "enterprise": "Lexus",
+        "title": "Lexus Pre-Owned",
+        "description": "Listing with combinable filters, vehicle comparison tool, and certified pre-owned detail page."
+      },
+      {
+        "id": "eci",
+        "enterprise": "El Corte Inglés",
+        "title": "Evolve",
+        "description": "Digital onboarding process and credit card application wizard."
+      },
+      {
+        "id": "mutua-cotizador",
+        "enterprise": "Mutua",
+        "title": "Quote Calculator",
+        "description": "Interactive assistant and calculator for car insurance quoting."
+      },
+      {
+        "id": "mutuactivos",
+        "enterprise": "Mutua",
+        "title": "Investment Funds",
+        "description": "Interactive simulator for analyzing and contracting investment funds."
+      },
+      {
+        "id": "superefectivo",
+        "enterprise": "Superefectivo",
+        "title": "Superefectivo",
+        "description": "Web platform for financial services and pawn shop solutions."
+      }
+    ]
+  },
+  "howIWork": {
+    "pretitle": "04 — stack",
+    "title": "why work with me",
+    "reasons": [
+      {
+        "num": "01",
+        "title": "bulletproof layout",
+        "description": "Grid, Flexbox, and container queries. If the designer changes their mind or the text doubles, the layout holds up. No hand-coded rigid pixels."
+      },
+      {
+        "num": "02",
+        "title": "components, not pages",
+        "description": "I think in systems. A well-built component is used twenty times and edited once. I come from large team projects where that makes all the difference."
+      },
+      {
+        "num": "03",
+        "title": "performance from minute one",
+        "description": "Bundle size under control, properly served images, and jank-free rendering. Performance isn't fixed at the end—it's decided at the start."
+      },
+      {
+        "num": "04",
+        "title": "animation with a purpose",
+        "description": "I love movement, but only when it explains something: where an element comes from, what just happened, where you are. Everything else is clutter."
+      }
+    ]
+  },
+  "techStack": {
+    "pretitle": "04 — Stack"
+  },
+  "contact": {
+    "pretitle": "05 — contact",
+    "title": "let's talk",
+    "description": "I'm looking for a place where frontend is truly cared for. If you have a project in mind or an open role, drop me a message and let's talk.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "copyright": "© 2026 Carlos Lores",
+    "subtitle": "Frontend Developer · Madrid",
+    "backToTop": "Back to top ↑"
+  }
+}

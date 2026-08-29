@@ -1,10 +1,17 @@
 import { createContext, useContext, useState, useEffect, useMemo } from "react";
+import esData from "../locales/es.json";
+import enData from "../locales/en.json";
 
 const GlobalContext = createContext();
+
+const es = esData.default || esData;
+const en = enData.default || enData;
+const translations = { es, en };
 
 export const GlobalProvider = ({ children }) => {
   const [isLightMode, setisLightMode] = useState(false);
   const [showCoder, setShowCoder] = useState(false);
+  const [lang, setLang] = useState("es");
 
   useEffect(() => {
     if (isLightMode) {
@@ -17,9 +24,15 @@ export const GlobalProvider = ({ children }) => {
   }, [isLightMode]);
 
   const toggleDarkMode = () => setisLightMode((prev) => !prev);
+  const toggleLanguage = () => setLang((prev) => (prev === "es" ? "en" : "es"));
+
+  const t = useMemo(() => {
+    return translations[lang] || translations.es || es;
+  }, [lang]);
+
   const value = useMemo(
-    () => ({ isLightMode, toggleDarkMode, showCoder, setShowCoder }),
-    [isLightMode, showCoder]
+    () => ({ isLightMode, toggleDarkMode, showCoder, setShowCoder, lang, setLang, toggleLanguage, t }),
+    [isLightMode, showCoder, lang, t]
   );
 
   return (

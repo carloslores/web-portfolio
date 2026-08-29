@@ -1,0 +1,135 @@
+{
+  "header": {
+    "logo": "portfolio",
+    "navAbout": "Sobre mí",
+    "navStack": "Stack",
+    "navProjects": "Proyectos",
+    "navContact": "Contacto",
+    "ariaMenu": "Abrir menú"
+  },
+  "welcome": {
+    "preTitle": "Frontend Developer · Madrid · Disponible",
+    "titleLine1": "interfaces",
+    "titleLine2With": "con",
+    "titleLine2Highlight": "carácter",
+    "description": "Soy Carlos Lores. Construyo el front de productos que usa mucha gente: buscadores de coche, simuladores de ahorro, ecommerce. Código limpio, animación con criterio y cero plantillas.",
+    "ctaWork": "Ver mi trabajo",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "about": {
+    "pretitle": "01 — Sobre mí",
+    "title": "¿quién dijo que el front era solo maquetar?",
+    "paragraph1": "Trabajo en producto real, no en demos. He desarrollado el buscador de vehículo de ocasión de Lexus y Toyota, el simulador de ahorro e inversión de Mutua Madrileña y piezas de El Corte Inglés. Proyectos con tráfico de verdad, con diseño de verdad y con plazos de verdad.",
+    "paragraph2": "Me formé en Ironhack y desde entonces no he parado de trastear: React y Angular en el día a día, TypeScript siempre que puedo, y un interés casi obsesivo por que las cosas se sientan rápidas. Si algo tarda 300 ms de más, me entero.",
+    "stats": {
+      "projects": {
+        "value": "6+",
+        "label": "Proyectos en producción"
+      },
+      "brands": {
+        "value": "5",
+        "label": "Marcas grandes"
+      },
+      "responsive": {
+        "value": "100%",
+        "label": "Responsive, sin excusas"
+      }
+    }
+  },
+  "ribbon": [
+    "react",
+    "angular",
+    "typescript",
+    "animación",
+    "rendimiento"
+  ],
+  "projects": {
+    "pretitle": "03 — Proyectos",
+    "titleLine1": "cosas que",
+    "titleLine2": "he construido",
+    "items": [
+      {
+        "id": "esimflag",
+        "enterprise": "Esimflag",
+        "title": "Toyota VO",
+        "description": "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados."
+      },
+      {
+        "id": "toyota",
+        "enterprise": "Toyota",
+        "title": "Toyota VO",
+        "description": "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados."
+      },
+      {
+        "id": "lexus",
+        "enterprise": "Lexus",
+        "title": "Lexus VO",
+        "description": "Listado con filtros combinables, comparador y ficha de vehículo seminuevo."
+      },
+      {
+        "id": "eci",
+        "enterprise": "El Corte Inglés",
+        "title": "Evolve",
+        "description": "Proceso de onboarding digital y solicitud de tarjeta de crédito."
+      },
+      {
+        "id": "mutua-cotizador",
+        "enterprise": "Mutua",
+        "title": "Cotizador",
+        "description": "Asistente y calculador interactivo para la cotización de seguros de coche."
+      },
+      {
+        "id": "mutuactivos",
+        "enterprise": "Mutua",
+        "title": "Fondos de inversión",
+        "description": "Simulador interactivo para el análisis y contratación de fondos de inversión."
+      },
+      {
+        "id": "superefectivo",
+        "enterprise": "Superefectivo",
+        "title": "Superefectivo",
+        "description": "Plataforma web de servicios financieros y empeño."
+      }
+    ]
+  },
+  "howIWork": {
+    "pretitle": "04 — stack",
+    "title": "por qué contar conmigo",
+    "reasons": [
+      {
+        "num": "01",
+        "title": "maquetación que no se rompe",
+        "description": "Grid, Flexbox y container queries. Si el diseñador cambia de idea o el texto crece el doble, el layout aguanta. Nada de píxeles clavados a mano."
+      },
+      {
+        "num": "02",
+        "title": "componentes, no páginas",
+        "description": "Pienso en sistemas. Un componente bien hecho se usa veinte veces y se toca una. Vengo de proyectos con equipos grandes donde eso marca la diferencia."
+      },
+      {
+        "num": "03",
+        "title": "rendimiento desde el minuto uno",
+        "description": "Bundle bajo control, imágenes servidas como toca y render sin saltos. El rendimiento no se arregla al final, se decide al empezar."
+      },
+      {
+        "num": "04",
+        "title": "animación con un motivo",
+        "description": "Me gusta el movimiento, pero solo cuando explica algo: de dónde viene un elemento, qué acaba de pasar, dónde estás. Lo demás sobra."
+      }
+    ]
+  },
+  "techStack": {
+    "pretitle": "04 — Stack"
+  },
+  "contact": {
+    "pretitle": "05 — contacto",
+    "title": "hablemos",
+    "description": "Busco un sitio donde el front se cuide de verdad. Si tienes un proyecto entre manos o una vacante, escríbeme y lo vemos.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "copyright": "© 2026 Carlos Lores",
+    "subtitle": "Frontend Developer · Madrid",
+    "backToTop": "Volver arriba ↑"
+  }
+}

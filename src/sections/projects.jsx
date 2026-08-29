@@ -1,69 +1,73 @@
 import { useEffect, useRef } from "react";
 import "./projects.scss";
+import { useGlobal } from "../contexts/GlobalContext";
 
-const projects = [
+const rawProjects = [
   {
+    id: "esimflag",
     link: "https://esimflag.com/",
     image: "/esimflag.png",
     logo: "toyota_logo.svg",
-    enterprise: "Esimflag",
-    title: "Toyota VO",
     tech: ["react", "html", "css"],
-    description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
   },
   {
+    id: "toyota",
     link: "https://www.toyota.es/coches-segunda-mano",
     image: "/toyota-light.png",
     logo: "toyota_logo.svg",
-    enterprise: "Toyota",
-    title: "Toyota VO",
     tech: ["react", "html", "css"],
-    description: "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados.",
   },
   {
+    id: "lexus",
     link: "https://www.lexusauto.es/lexus-seminuevos",
     image: "/lexus.png",
     logo: "lexus-logo-silver.png",
-    enterprise: "Lexus",
-    title: "Lexus VO",
     tech: ["react", "html", "css"],
   },
   {
+    id: "eci",
     link: "https://www.financieraelcorteingles.es/es/solicitar-tarjeta/evolve-onboarding/wizard/step1/welcome",
     image: "/eci-financiera.png",
     logo: "Logo_Corte_Ingles.svg",
-    enterprise: "El Corte Inglés",
-    title: "Evolve",
     tech: ["node", "typescript", "html", "css"],
   },
   {
+    id: "mutua-cotizador",
     link: "https://www.mutua.es/seguros-coche/calcular/chat/",
     image: "/mutua-madrilena.png",
     logo: "mutua-logo.png",
-    enterprise: "Mutua",
-    title: "Cotizador",
     tech: ["angular", "typescript", "html", "css"],
   },
   {
+    id: "mutuactivos",
     link: "https://www.mutua.es/fondo-inversion-mas-rentables/",
     image: "/mutuactivos.png",
     logo: "mutua-logo.png",
-    enterprise: "Mutua",
-    title: "Fondos de inversión",
     tech: ["angular", "typescript", "html", "css"],
   },
   {
+    id: "superefectivo",
     link: "https://www.superefectivo.com/",
     image: "/superefectivo.png",
     logo: "superefectivo.png",
-    enterprise: "Superefectivo",
-    title: "Superefectivo",
     tech: ["js", "html", "css"],
   },
 ];
 
 const Projects = () => {
   const projectRefs = useRef([]);
+  const { t } = useGlobal();
+  const projTrans = t?.projects || {};
+
+  const projects = rawProjects.map((proj, i) => {
+    const translation = projTrans.items?.[i] || {};
+    return {
+      ...proj,
+      title: translation.title || "",
+      enterprise: translation.enterprise || "",
+      description: translation.description || "",
+    };
+  });
 
   useEffect(() => {
     const timeoutIds = [];
@@ -99,12 +103,12 @@ const Projects = () => {
 
       <div className="container extra-left-padding p-0-md-right">
         <div className="pretitle">
-          03 — Proyectos
+          {projTrans.pretitle}
         </div>
         <h2>
-          cosas que
+          {projTrans.titleLine1}
           <br />
-          he construido
+          {projTrans.titleLine2}
 
         </h2>
 

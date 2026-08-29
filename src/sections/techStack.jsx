@@ -1,4 +1,5 @@
 import "./techStack.scss";
+import { useGlobal } from "../contexts/GlobalContext";
 
 const stackLogos = [
     { name: "React", logo: "/reactjs.svg" },
@@ -21,10 +22,13 @@ const stackAI = [
 ];
 
 const TechStack = () => {
+    const { t } = useGlobal();
+    const techStack = t?.techStack || {};
+
     return (
         <section className="section--techStack" id="techStack">
             <div className="pretitle">
-                04 — Stack
+                {techStack.pretitle}
             </div>
             <div className="stack-container">
                 {stackLogos.map((logo) => (
