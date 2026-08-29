@@ -8,7 +8,8 @@ const flagsImg = {
 }
 
 const flagComponent = (lang, toggleLanguage) => {
-  return <span className="lang-container-btn" onClick={toggleLanguage}> <img src={process.env.PUBLIC_URL + flagsImg[lang]} alt={lang} /></span>
+  const altText = lang === "es" ? "Cambiar idioma a español" : "Switch language to English";
+  return <span className="lang-container-btn" onClick={toggleLanguage}> <img src={process.env.PUBLIC_URL + flagsImg[lang]} alt={altText} /></span>
 }
 
 const Header = (params) => {

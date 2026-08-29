@@ -207,21 +207,21 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
 
                 {!showCoder ?
                     <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }}>
-                        <img src={process.env.PUBLIC_URL + "/brain.png"} alt="" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
+                        <img src={process.env.PUBLIC_URL + "/brain.png"} alt="Cerebro animado interactivo" style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
                     </div>
                     :
                     <div data-rail-dot="1" className="test" style={{ position: "absolute", top: 0, left: "57px", width: "132px", height: "auto", margin: "-106px 0 0 -66px", opacity: 0, filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} >
 
                         <img className="fire"
                             src={process.env.PUBLIC_URL + "/fire.gif"}
-                            alt=""
+                            alt="Efecto de fuego animado"
                             style={{ position: "absolute", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }}
                         />
-                        <img className="smoke" src={process.env.PUBLIC_URL + "/smoke.gif"} alt="" style={{ position: "absolute", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
-                        <img className="eyes vibrate" src={process.env.PUBLIC_URL + "/eyes.png"} alt="" style={{ position: "absolute", top: 0, height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
+                        <img className="smoke" src={process.env.PUBLIC_URL + "/smoke.gif"} alt="Efecto de humo animado" style={{ position: "absolute", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
+                        <img className="eyes vibrate" src={process.env.PUBLIC_URL + "/eyes.png"} alt="Ojos animados" style={{ position: "absolute", top: 0, height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }} />
                         <img
                             src={process.env.PUBLIC_URL + "/coder-down.png"}
-                            alt=""
+                            alt="Avatar de programador"
                             style={{ position: "absolute", top: 0, left: 0, width: "132px", height: "auto", margin: "-106px 0 0 -66px", filter: "drop-shadow(0 20px 26px rgba(0,0,0,.3))", transition: "opacity .45s ease" }}
                         />
                     </div>

@@ -124,7 +124,7 @@ const Projects = () => {
               <article className="card-project-container">
 
                 <div className="card-image-container">
-                  <img src={process.env.PUBLIC_URL + project.image} className="card__image" alt="" />
+                  <img src={process.env.PUBLIC_URL + project.image} className="card__image" alt={`${project.enterprise ? project.enterprise + " - " : ""}${project.title} - Captura del proyecto`} />
                   <h3>{project.title} <span>{'>'}</span></h3>
 
                 </div>

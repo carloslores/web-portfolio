@@ -95,11 +95,10 @@ const Welcome = () => {
             </div>
             <div className="welcome-home-img">
 
-              <img className="fire-img" src={process.env.PUBLIC_URL + "/fire-vertical.gif"} alt="fire" />
-              <img id="brain-up" className="coder-img brain vibrate" src={process.env.PUBLIC_URL + "/brain.png"} alt="Coder" />
-              <img className="coder-img up-image" src={process.env.PUBLIC_URL + "/coder-up.png"} alt="Coder" />
-              <img className="coder-img down-image" src={process.env.PUBLIC_URL + "/coder-down.png"} alt="Coder" />
-              {/* <img className="bubble-img" src={process.env.PUBLIC_URL + "/bubble-speech.png"} alt="Coder" /> */}
+              <img className="fire-img" src={process.env.PUBLIC_URL + "/fire-vertical.gif"} alt="Efecto de fuego animado de fondo" />
+              <img id="brain-up" className="coder-img brain vibrate" src={process.env.PUBLIC_URL + "/brain.png"} alt="Ilustración conceptual de cerebro con circuitos" />
+              <img className="coder-img up-image" src={process.env.PUBLIC_URL + "/coder-up.png"} alt="Ilustración de Carlos Lores - Frontend Developer" />
+              <img className="coder-img down-image" src={process.env.PUBLIC_URL + "/coder-down.png"} alt="Ilustración de desarrollador en su escritorio" />
             </div>
             {/* <div className="tech-stack"
               style={{ position: 'absolute', left: '-14px', bottom: '18px', zIndex: 3, background: 'rgb(212, 55, 47)', color: 'rgb(236, 234, 228)', padding: '12px 18px', borderRadius: '100px', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', animation: '0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 2.35s 1 normal both running cl-rise' }}>

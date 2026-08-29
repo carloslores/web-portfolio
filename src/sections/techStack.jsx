@@ -33,7 +33,7 @@ const TechStack = () => {
             <div className="stack-container">
                 {stackLogos.map((logo) => (
                     <div className="stack-card" key={logo.name}>
-                        <img src={process.env.PUBLIC_URL + logo.logo} alt="Stack Logo" />
+                        <img src={process.env.PUBLIC_URL + logo.logo} alt={`Logo de la tecnología ${logo.name}`} />
                         <span>{logo.name}</span>
                     </div>
                 ))}
@@ -41,7 +41,7 @@ const TechStack = () => {
             <div className="stack-container p-y-5">
                 {stackAI.map((logo) => (
                     <div className="stack-card" key={logo.name}>
-                        <img src={process.env.PUBLIC_URL + logo.logo} alt="Stack Logo" />
+                        <img src={process.env.PUBLIC_URL + logo.logo} alt={`Logo de herramienta de IA ${logo.name}`} />
                         <span>{logo.name}</span>
                     </div>
                 ))}
