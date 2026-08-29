@@ -1,0 +1,17 @@
+#marquee-clients {
+    .title-brands-clients {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0px 96px 22px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgb(138, 133, 120);
+
+        @media(max-width: 1024px) {
+            padding: 0px 20px 22px;
+        }
+    }
+}

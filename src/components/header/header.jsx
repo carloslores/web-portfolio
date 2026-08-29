@@ -44,7 +44,9 @@ const Header = (params) => {
           <a href="#contact">{header.navContact}</a>
           {flagComponent(lang, toggleLanguage)}
         </span>
-
+        <div data-dc-tpl="21" data-progress-track="1" style={{ position: "absolute", left: "0px", right: "0px", bottom: "-1px", height: "2px", background: "transparent", pointerEvents: "none" }}>
+          <div data-dc-tpl="22" data-progress="1" style={{ height: "100%", width: "0%", background: "rgb(212, 55, 47)" }}></div>
+        </div>
       </nav>
 
       <div className={`menu-panel ${openMenu ? "open" : ""}`}>

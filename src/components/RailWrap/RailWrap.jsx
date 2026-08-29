@@ -5,6 +5,7 @@ import Projects from "../../sections/projects";
 import HowIWork from "../../sections/howIWork";
 import TechStack from "../../sections/techStack";
 import Contact from "../../sections/contact";
+import Marquee from "../../sections/marquee";
 import { useGlobal } from "../../contexts/GlobalContext";
 
 
@@ -40,12 +41,9 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
 
     useEffect(() => {
         const manejarScroll = () => {
-            // 1. Recorremos los IDs de tus elementos
             for (const id of ids) {
                 const el = document.getElementById(id);
                 if (!el) continue;
-
-                // 2. Obtenemos la posición del elemento respecto a la pantalla
                 const posicion = el.getBoundingClientRect();
                 if (el.id === "projects") {
                     setShowCoder(true)
@@ -109,8 +107,8 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
 
         // ── setupScroll ──────────────────────────────────────────────────────
         const q = (s) => el.querySelector(s);
-        const nav = q('[data-nav]');
-        const bar = q('[data-progress]');
+        const nav = q('[data-nav]') || document.querySelector('.navbar');
+        const bar = q('[data-progress]') || document.querySelector('[data-progress]');
         const wrap = el;
         const railPath = q('[data-rail-path]');
         const dot = q('[data-rail-dot]');
@@ -199,6 +197,7 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
 
     return (
         <div ref={rootRef} data-railwrap="1" style={{ position: "relative" }}>
+            <Marquee />
             <div data-rail="1" aria-hidden="true" className="rail">
                 <svg viewBox="0 0 100 1000" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", overflow: "visible" }}>
                     <path d="M 50 0 C 78 60, 22 112, 50 172 S 82 262, 44 334 S 20 432, 58 504 S 80 604, 40 674 S 20 782, 54 854 S 76 934, 50 1000" fill="none" stroke="rgba(212,55,47,.22)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
