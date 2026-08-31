@@ -513,3 +513,75 @@ p {
 
 
 }
+
+@media (min-width: 1024px) and (max-height: 760px) {
+
+  .welcome-section-container {
+    height: auto;
+    min-height: 100vh;
+    align-items: center;
+    position: relative;
+
+    .left {
+      .pre-title {
+        margin: 1rem 0 0.75rem;
+      }
+
+      p {
+        font-size: 16px !important;
+        line-height: 1.45;
+        margin-top: 0.6rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .hero-contact-container {
+      margin-top: 1rem;
+    }
+
+    .welcome-home-img {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 14rem;
+
+      .coder-img {
+        &.down-image {
+          width: 255px;
+        }
+
+        &.up-image {
+          width: 145px;
+          top: -52px;
+          right: -120px;
+        }
+
+        &.brain {
+          width: 135px;
+          top: -50px;
+          right: -113px;
+        }
+      }
+
+      .fire-img {
+        width: 120px;
+        top: 7rem;
+        left: -4.8rem;
+      }
+    }
+  }
+
+  .contenedor-idea {
+    top: 50%;
+    transform: translateY(-50%) rotate(-48deg);
+    right: 13rem;
+  }
+
+  .dark-mode h1 {
+    font-size: clamp(44px, 7vw, 90px);
+    line-height: 0.9;
+  }
+
+  #marquee-clients {
+    margin-top: 4rem;
+  }
+}
