@@ -9,18 +9,17 @@ const flagsImg = {
 
 const flagComponent = (lang, toggleLanguage) => {
   const altText = lang === "es" ? "Cambiar idioma a español" : "Switch language to English";
-  return <span className="lang-container-btn" onClick={toggleLanguage}> <img src={process.env.PUBLIC_URL + flagsImg[lang]} alt={altText} /></span>
+  return <span className="lang-container-btn" onClick={toggleLanguage}> <img src={process.env.PUBLIC_URL + flagsImg[lang]} alt={altText} width="24" height="18" /></span>
 }
 
 const Header = (params) => {
-  const { scroll } = params;
   const [openMenu, setOpenMenu] = useState(false);
   const { t, lang, toggleLanguage } = useGlobal();
   const header = t?.header || {};
 
   return (
     <>
-      <nav className={`navbar${scroll ? " blur" : ""}`}>
+      <nav className="navbar blur">
         <div className="container-text-and-btn">
           <h3 className="heebo">portfolio<span className="red-text">.</span></h3>
 
@@ -30,10 +29,23 @@ const Header = (params) => {
           <div className={`flag-mobile ${openMenu ? "open" : ""}`}>
             {flagComponent(lang, toggleLanguage)}
           </div>
-          <button className="menu-btn" onClick={() => setOpenMenu(!openMenu)}>
-            <span style={{ display: "block", height: "2px", width: "100%", background: "rgb(22, 21, 15)", borderRadius: "2px" }}></span>
-            <span style={{ display: "block", height: "2px", width: "100%", background: "rgb(22, 21, 15)", borderRadius: "2px" }}></span>
-            <span style={{ display: "block", height: "2px", width: "70%", background: "rgb(212, 55, 47)", borderRadius: "2px" }}></span>
+          <button
+            type="button"
+            className="menu-btn"
+            aria-label={openMenu ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={openMenu}
+            aria-controls="mobile-menu"
+            onClick={() => setOpenMenu((isOpen) => !isOpen)}
+          >
+            {openMenu ? (
+              <img className="close-icon" src={process.env.PUBLIC_URL + "/icon-close.svg"} alt="close button" />
+            ) : (
+             <>
+                <span></span>
+                <span></span>
+                <span></span>
+              </>
+            )}
           </button>
         </div>
 
@@ -49,11 +61,30 @@ const Header = (params) => {
         </div>
       </nav>
 
-      <div className={`menu-panel ${openMenu ? "open" : ""}`}>
+      <div id="mobile-menu" className={`menu-panel ${openMenu ? "open" : ""}`}>
         <a href="#about" onClick={() => setOpenMenu(false)}><span>01</span>{header.navAbout}</a>
         <a href="#techStack" onClick={() => setOpenMenu(false)}><span>02</span>{header.navStack}</a>
         <a href="#projects" onClick={() => setOpenMenu(false)}><span>03</span>{header.navProjects}</a>
-        <a href="#contact" onClick={() => setOpenMenu(false)}><span>04</span>{header.navContact}</a>
+        <a className="red-text" href="#contact" onClick={() => setOpenMenu(false)}><span>04</span>{header.navContact}</a>
+        
+        <div className="hamburger-contact-buttons">
+          <a
+                    className="btn btn-tertiary"
+                    href="https://github.com/carloslores/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {header.hamburgerMenu.buttons.github}
+                  </a>
+                  <a
+                    className="btn btn-tertiary"
+                    href="https://www.linkedin.com/in/carlos-lores-h/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {header.hamburgerMenu.buttons.linkedin}
+                  </a>
+          </div>
 
 
       </div></>

@@ -102,10 +102,10 @@ const Projects = () => {
     <section id="projects">
 
       <div className="container extra-left-padding p-0-md-right">
-        <div className="pretitle">
+        <div className="pretitle" data-reveal="1">
           {projTrans.pretitle}
         </div>
-        <h2>
+        <h2 data-reveal="1">
           {projTrans.titleLine1}
           <br />
           {projTrans.titleLine2}
@@ -119,8 +119,8 @@ const Projects = () => {
               className="align-items-center fade-in-up p-y-2"
               key={project.link || project.title}
               ref={(el) => (projectRefs.current[i] = el)}
-            //style={i % 2 === 0 ? { marginLeft: "10rem" } : {}}
             >
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
               <article className="card-project-container">
 
                 <div className="card-image-container">
@@ -128,21 +128,8 @@ const Projects = () => {
                   <h3>{project.title} <span>{'>'}</span></h3>
 
                 </div>
-                {/* <div className="info-project-container">
-                  <div className="d-flex align-items-center">
-                    <span className="enterprise-name">{project.enterprise}</span>
-                    <span className="line-project"></span>
-                  </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="tech-container">
-
-                    {project.tech.map((icon, index) => (
-                      <span className="tech-icon" key={index} >{icon}</span>
-                    ))}
-                  </div>
-                </div> */}
               </article>
+              </a>
             </div>
           ))}
         </div>

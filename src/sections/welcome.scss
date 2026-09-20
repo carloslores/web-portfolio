@@ -2,17 +2,13 @@
   height: 100vh;
   font-family: "Anton", sans-serif;
 
-  .red-text {
-    color: rgb(212, 55, 47);
-  }
+  
 
 
   .bg-divices {
     width: 100%;
     mask-image: linear-gradient(to left, black 80%, transparent);
     height: 70vh;
-
-
   }
 
   .profile-image {
@@ -244,7 +240,7 @@
       flex-direction: column;
       gap: 14px;
       margin-top: 32px;
-      width: 179px;
+      width: 155px;
       text-align: center;
     }
   }
@@ -297,7 +293,7 @@
     font-family: Anton, sans-serif;
     font-weight: 400;
     text-transform: lowercase;
-    font-size: clamp(56px, 9.5vw, 200px);
+    font-size: clamp(56px, 8.5vw, 200px);
     line-height: 0.86;
     letter-spacing: -0.015em;
     margin: 0px;
@@ -540,7 +536,7 @@ p {
     }
 
     .welcome-home-img {
-      top: 50%;
+      top: 38%;
       transform: translateY(-50%);
       right: 14rem;
 
@@ -564,8 +560,8 @@ p {
 
       .fire-img {
         width: 120px;
-        top: 7rem;
-        left: -4.8rem;
+        top: 8.5rem;
+        left: -5rem;
       }
     }
   }
@@ -573,7 +569,35 @@ p {
   .contenedor-idea {
     top: 50%;
     transform: translateY(-50%) rotate(-48deg);
-    right: 13rem;
+    right: 8%;
+    .linea {
+      &.l1 {
+        top: 7rem;
+        left: 14rem;
+      }
+
+      /* Líneas Diagonales Superiores */
+      &.l2 {
+        top: 4rem;
+        left: 12rem;
+      }
+
+      &.l3 {
+        top: 4.5rem;
+        right: 3.5rem;
+      }
+
+      &.l4 {
+        top: 7rem;
+        left: 8rem;
+      }
+
+      &.l5 {
+        top: 9rem;
+        left: 7rem;
+        rotate: -69deg !important;
+      }
+    }
   }
 
   .dark-mode h1 {

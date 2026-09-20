@@ -52,7 +52,7 @@ const Welcome = () => {
                 {welcome.description}
               </p>
 
-              <div className="hero-contact-container d-flex no-flex-mb">
+              <div className="hero-contact-container d-flex no-flex-tb">
                 <a href="#projects" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                   {welcome.ctaWork}  <span data-dc-tpl="48" style={{ fontFamily: '"JetBrains Mono", monospace' }}>↓</span>
                 </a>

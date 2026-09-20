@@ -7,17 +7,17 @@ const About = () => {
   const stats = about.stats || {};
 
   return (
-    <section id="about" className="container container-padding" style={{ height: "100vh" }}>
+    <section id="about" className="container container-padding" >
       <div className="col-8 col-md-12">
-        <div className="pretitle">
+        <div className="pretitle" data-reveal="1">
           {about.pretitle}
         </div>
-        <h2>
+        <h2 data-reveal="1">
           {about.title}
         </h2>
         <div className="d-flex more-info">
-          <p>{about.paragraph1}</p>
-          <p>{about.paragraph2}</p>
+          <p data-reveal="1">{about.paragraph1}</p>
+          <p data-reveal="1">{about.paragraph2}</p>
         </div>
         <div className="extra-content col-md-12">
 

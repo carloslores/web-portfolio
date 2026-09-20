@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Header from "./components/Header/Header";
 import "./App.scss";
 import Welcome from "./sections/welcome";
@@ -7,13 +7,7 @@ import RailWrap from "./components/RailWrap/RailWrap";
 
 function App() {
   const hasRun = useRef(false);
-  const [navBg, setNavBg] = useState(false);
-  const showRailRef = useRef(false);
 
-  const changeNavBg = () => {
-    window.scrollY >= 100 ? setNavBg(true) : setNavBg(false);
-    showRailRef.current = window.scrollY >= 500;
-  };
 
   useEffect(() => {
     if (!hasRun.current) {
@@ -22,18 +16,11 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("scroll", changeNavBg);
-    return () => {
-      window.removeEventListener("scroll", changeNavBg);
-    };
-  }, []);
-
   return (
     <GlobalProvider>
       <main className="App">
-        <div onScroll={changeNavBg}>
-          <Header scroll={navBg} />
+        <div>
+          <Header/>
         </div>
 
         <Welcome />

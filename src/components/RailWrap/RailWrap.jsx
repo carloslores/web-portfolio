@@ -16,27 +16,6 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
     const rootRef = useRef(null);
     const { showCoder, setShowCoder, t } = useGlobal();
 
-    // filter puede llamarse desde el JSX, por lo que vive fuera del effect
-    const filter = (e) => {
-        const el = rootRef.current;
-        const tag = e.currentTarget.getAttribute('data-tag');
-        if (!el) return;
-        el.querySelectorAll('[data-filters] button').forEach((b) => {
-            const on = b.getAttribute('data-tag') === tag;
-            b.style.background = on ? '#d4372f' : 'transparent';
-            b.style.borderColor = on ? '#d4372f' : '#3a382f';
-        });
-        let shown = 0;
-        el.querySelectorAll('[data-card]').forEach((c) => {
-            const tags = (c.getAttribute('data-tags') || '').split(' ');
-            const match = tag === 'all' || tags.indexOf(tag) !== -1;
-            c.style.display = match ? 'flex' : 'none';
-            if (match) shown++;
-        });
-        const empty = el.querySelector('[data-empty]');
-        if (empty) empty.style.display = shown ? 'none' : 'block';
-    };
-
     const elementoActivoRef = useRef('');
 
     useEffect(() => {
@@ -107,7 +86,6 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
 
         // ── setupScroll ──────────────────────────────────────────────────────
         const q = (s) => el.querySelector(s);
-        const nav = q('[data-nav]') || document.querySelector('.navbar');
         const bar = q('[data-progress]') || document.querySelector('[data-progress]');
         const wrap = el;
         const railPath = q('[data-rail-path]');
@@ -131,14 +109,6 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
                     n.style.filter = 'none';
                 }
             });
-
-            if (nav) {
-                const on = y > 40;
-                nav.style.background = on ? 'rgba(236,234,228,.82)' : 'transparent';
-                nav.style.backdropFilter = on ? 'blur(16px)' : 'none';
-                nav.style.webkitBackdropFilter = on ? 'blur(16px)' : 'none';
-                nav.style.borderBottomColor = on ? '#d6d2c7' : 'transparent';
-            }
 
             if (bar) {
                 const max = document.documentElement.scrollHeight - vh;
@@ -264,13 +234,13 @@ const RailWrap = ({ showClients = true, showStack = true }) => {
             <Projects />
             <HowIWork />
             <TechStack />
-            <div style={{ color: "rgb(22, 21, 15)", marginBottom: "-3rem", inset: "auto -3rem 0%", width: "100%", marginTop: "-2rem" }}>
-                <svg width="100%" height="100%" viewBox="0 0 2429 144" fill="rgb(22, 21, 15)" xmlns="http://www.w3.org/2000/svg">
+            <div className="rail-wrap-last-divider" style={{ color: "rgb(22, 21, 15)", marginBottom: "-3rem", marginLeft: "-3rem", width: "calc(100% + 6rem)", marginTop: "-2rem" }}>
+                <svg style={{ display: "block" }} width="100%" height="100%" viewBox="0 0 2429 144" fill="rgb(22, 21, 15)" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_213_2781)">
                         <g filter="url(#filter0_g_213_2781)">
                             <path d="M-8.6 31.9L47.4 31.7C822.2 28.7 1574.6 21.7 1965.8 18L1983.8 17.9C2369.2 14.3 2376.9 14.3 2384.4 14.3H2440.4V126.3H2384.4C2377.6 126.3 2370.8 126.3 1984.9 129.9L1966.8 130C1575.7 133.7 823 140.7 47.8 143.7L-8.2 143.9L-8.6 31.9Z" fill="rgb(22, 21, 15)"></path>
                         </g>
-                        <rect x="0" y="98" width="2449" height="98" transform="rotate(-180 2440 98)" fill="rgb(22, 21, 15)currentColor"></rect>
+                        <rect x="0" y="98" width="2449" height="98" transform="rotate(-180 2440 98)" fill="rgb(22, 21, 15)"></rect>
                     </g>
                     <defs>
                         <filter id="filter0_g_213_2781" x="0" y="0.254883" width="2477.05" height="157.656" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

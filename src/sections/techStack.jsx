@@ -27,18 +27,18 @@ const TechStack = () => {
 
     return (
         <section className="section--techStack" id="techStack">
-            <div className="pretitle">
+            <div className="pretitle" data-reveal="1">
                 {techStack.pretitle}
             </div>
             <div className="stack-container">
                 {stackLogos.map((logo) => (
-                    <div className="stack-card" key={logo.name}>
+                    <div className="stack-card" key={logo.name} data-reveal="1">
                         <img src={process.env.PUBLIC_URL + logo.logo} alt={`Logo de la tecnología ${logo.name}`} />
                         <span>{logo.name}</span>
                     </div>
                 ))}
             </div>
-            <div className="stack-container p-y-5">
+            <div className="stack-container p-y-5" data-reveal="1">
                 {stackAI.map((logo) => (
                     <div className="stack-card" key={logo.name}>
                         <img src={process.env.PUBLIC_URL + logo.logo} alt={`Logo de herramienta de IA ${logo.name}`} />

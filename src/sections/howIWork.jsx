@@ -8,12 +8,12 @@ const HowIWork = () => {
 
     return (
         <section className="section--howIWork container extra-extra-left-padding" id="howIWork">
-            <div className="pretitle">
+            <div className="pretitle" data-reveal="1">
                 {howIWork.pretitle}
             </div>
-            <h2>{howIWork.title}</h2>
+            <h2 data-reveal="1">{howIWork.title}</h2>
             {reasons.map((reason) => (
-                <div className="table-container" key={reason.num}>
+                <div className="table-container" key={reason.num} data-reveal="1">
                     <div className="reason-num">{reason.num}</div>
                     <h3>{reason.title}</h3>
                     <p>{reason.description}</p>

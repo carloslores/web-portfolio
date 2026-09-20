@@ -1,4 +1,5 @@
 import "./marquee.scss"
+import { useGlobal } from "../contexts/GlobalContext";
 
 const LOGOS = [
     { src: "/lexus-logo.svg", alt: "Lexus", height: "26px" },
@@ -9,11 +10,13 @@ const LOGOS = [
     { src: "/superefectivo-logo.png", alt: "Superefectivo", height: "26px" },
 ];
 
-const Marquee = () => {
+const Marquee = () => {  
+    const { t } = useGlobal();
+    const marquee = t?.marquee || {};
     return (
         <section id="marquee-clients" className="container" data-dc-tpl="60" style={{ borderTop: "1px solid rgb(214, 210, 199)", borderBottom: "1px solid rgb(214, 210, 199)", padding: "30px 0px", overflow: "hidden" }}>
             <div data-dc-tpl="61" data-marqlabel="1" className="title-brands-clients" >
-                Marcas para las que he desarrollado
+                {marquee.title || "Marcas para las que he desarrollado"}
             </div>
             <div
                 style={{

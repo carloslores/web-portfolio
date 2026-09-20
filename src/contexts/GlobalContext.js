@@ -11,7 +11,7 @@ const translations = { es, en };
 export const GlobalProvider = ({ children }) => {
   const [isLightMode, setisLightMode] = useState(false);
   const [showCoder, setShowCoder] = useState(false);
-  const [lang, setLang] = useState("es");
+  const [lang, setLang] = useState("en");
 
   useEffect(() => {
     if (isLightMode) {

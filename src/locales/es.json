@@ -5,7 +5,13 @@
     "navStack": "Stack",
     "navProjects": "Proyectos",
     "navContact": "Contacto",
-    "ariaMenu": "Abrir menú"
+    "ariaMenu": "Abrir menú",
+    "hamburgerMenu": {
+      "buttons": {
+        "linkedin": "LinkedIn ↗",
+        "github": "GitHub ↗"
+      }
+    }
   },
   "welcome": {
     "preTitle": "Frontend Developer · Madrid · Disponible",
@@ -16,6 +22,9 @@
     "ctaWork": "Ver mi trabajo",
     "github": "GitHub",
     "linkedin": "LinkedIn"
+  },
+  "marquee": {
+    "title": "Marcas para las que he desarrollado"
   },
   "about": {
     "pretitle": "01 — Sobre mí",
@@ -52,7 +61,7 @@
       {
         "id": "esimflag",
         "enterprise": "Esimflag",
-        "title": "Toyota VO",
+        "title": "Esimflag",
         "description": "Listado con filtros combinables, comparador y ficha de vehículo. Estado de búsqueda sincronizado con la URL para poder compartir resultados."
       },
       {

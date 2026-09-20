@@ -5,7 +5,12 @@
     "navStack": "Stack",
     "navProjects": "Projects",
     "navContact": "Contact",
-    "ariaMenu": "Open menu"
+    "ariaMenu": "Open menu","hamburgerMenu": {
+      "buttons": {
+        "linkedin": "LinkedIn ↗",
+        "github": "GitHub ↗"
+      }
+    }
   },
   "welcome": {
     "preTitle": "Frontend Developer · Madrid · Available",
@@ -16,6 +21,9 @@
     "ctaWork": "See my work",
     "github": "GitHub",
     "linkedin": "LinkedIn"
+  },
+   "marquee": {
+    "title": "Brands I have developed for"
   },
   "about": {
     "pretitle": "01 — About me",
@@ -52,19 +60,19 @@
       {
         "id": "esimflag",
         "enterprise": "Esimflag",
-        "title": "Toyota Pre-Owned",
+        "title": "Esimflag",
         "description": "Listing with combinable filters, vehicle comparison tool, and detail page. Search state synchronized with the URL to enable sharing results."
       },
       {
         "id": "toyota",
         "enterprise": "Toyota",
-        "title": "Toyota Pre-Owned",
+        "title": "Toyota VO",
         "description": "Listing with combinable filters, vehicle comparison tool, and detail page. Search state synchronized with the URL to enable sharing results."
       },
       {
         "id": "lexus",
         "enterprise": "Lexus",
-        "title": "Lexus Pre-Owned",
+        "title": "Lexus VO",
         "description": "Listing with combinable filters, vehicle comparison tool, and certified pre-owned detail page."
       },
       {
