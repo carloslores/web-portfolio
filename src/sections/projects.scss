@@ -11,9 +11,13 @@
 #projects {
   background: rgb(22, 21, 15);
   color: rgb(236, 234, 228);
-  padding: 120px 40px 140px 88px;
+  padding: 40px 264px 140px 40px;
   min-height: 120vh;
   margin-top: -1rem;
+
+  @media (max-width: 1024px) {
+    padding: 20px;
+  }
 
   .card-container {
     padding: 3rem 0;
@@ -59,6 +63,15 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 26px;
     margin-top: 70px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    a {
+      text-decoration: none;
+      color: unset;
+    }
   }
 
   .card-project-container {
@@ -71,11 +84,16 @@
     opacity: 1;
     transform: none;
     filter: none;
+    transition:
+      transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+      border-color 0.45s ease,
+      box-shadow 0.45s ease;
 
     .card-image-container {
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 14 / 10;
       overflow: hidden;
       background: rgb(15, 14, 10);
+      position: relative;
 
       img {
         width: 100%;
@@ -83,6 +101,44 @@
         object-fit: cover;
         display: block;
         transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      }
+
+      h3 {
+        position: absolute;
+        bottom: 1rem;
+        left: 2rem;
+        display: flex;
+        justify-content: space-between;
+        width: 88%;
+        transition:
+          transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+          text-shadow 0.45s ease;
+
+        span {
+          transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+      }
+
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: rgb(72, 69, 57);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+
+      .card-image-container img {
+        transform: scale(1.025);
+      }
+
+      .card-image-container h3 {
+        transform: translateY(-3px);
+        text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+
+        span {
+          transform: translateX(5px);
+        }
       }
     }
 
@@ -148,6 +204,21 @@
       }
 
 
+    }
+  }
+
+  .projects-container a:focus-visible .card-project-container {
+    transform: translateY(-6px);
+    border-color: rgb(236, 234, 228);
+    box-shadow: 0 0 0 3px rgba(236, 234, 228, 0.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-project-container,
+    .card-project-container .card-image-container img,
+    .card-project-container .card-image-container h3,
+    .card-project-container .card-image-container h3 span {
+      transition-duration: 0.01ms;
     }
   }
 

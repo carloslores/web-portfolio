@@ -1,89 +1,81 @@
 
 import "./welcome.scss";
-import { useGlobal } from "../contexts/GlobalContext";
 import { useEffect } from "react";
+import { useGlobal } from "../contexts/GlobalContext";
 
 const Welcome = () => {
-  const { isLightMode } = useGlobal();
+  const { t } = useGlobal();
+  const welcome = t?.welcome || {};
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
+      const brain = document.getElementById("brain-up");
+      if (!brain) return;
+
       if (window.scrollY >= 100) {
-        document.getElementById("brain-up").classList.add("rotate-out-bl");
-        document.getElementById("brain-up").classList.remove("vibrate");
+        brain.classList.add("rotate-out-bl");
+        brain.classList.remove("vibrate");
       } else {
-        document.getElementById("brain-up").classList.remove("rotate-out-bl");
-        document.getElementById("brain-up").classList.add("vibrate");
+        brain.classList.remove("rotate-out-bl");
+        brain.classList.add("vibrate");
       }
-    })
-  }, [])
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
       <section id="welcome" className="container container-padding">
         <div className="welcome-section-container row no-row-mb">
-          <div className="col-7 d-flex align-items-center">
+          <div className="col-7 col-md-12 d-flex align-items-center">
             <div className="left">
               <div className="pre-title">
                 <span className="dot-animation">
 
                 </span>
-                Frontend Developer · Madrid · Disponible
+                {welcome.preTitle}
               </div>
-              <h1> <div className="word-rise">interfaces</div>
-                <div className="second-word-rise">con {' '}
+              <h1> <div className="word-rise">{welcome.titleLine1}</div>
+                <div className="second-word-rise">{welcome.titleLine2With} {' '}
                   <span className="red-text" >
-                    carácter</span>
+                    {welcome.titleLine2Highlight}</span>
 
                 </div>
               </h1>
 
 
               <p>
-                Soy Carlos Lores. Construyo el front de productos que usa mucha gente: buscadores de coche, simuladores de ahorro, ecommerce. Código limpio, animación con criterio y cero plantillas.
+                {welcome.description}
               </p>
 
-              <div className="hero-contact-container d-flex no-flex-mb">
-                <button className="btn btn-primary">Explore My Work</button>
-                <div className="icons">
+              <div className="hero-contact-container d-flex no-flex-tb">
+                <a href="#projects" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                  {welcome.ctaWork}  <span data-dc-tpl="48" style={{ fontFamily: '"JetBrains Mono", monospace' }}>↓</span>
+                </a>
+                <div className="btn-group">
                   <a
-                    className="btn btn-outline grow"
+                    className="btn btn-tertiary"
                     href="https://github.com/carloslores/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      viewBox="0 0 24 24"
-                      style={{ fill: `${isLightMode ? "#444" : "#d4372f"}` }}
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
-                      ></path>
-                    </svg>
+                    {welcome.github}
                   </a>
                   <a
-                    className="btn btn-outline grow"
+                    className="btn btn-tertiary"
                     href="https://www.linkedin.com/in/carlos-lores-h/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      viewBox="0 0 24 24"
-                      style={{ fill: `${isLightMode ? "#000" : "#d4372f"}` }}
-                    >
-                      <circle cx="4.983" cy="5.009" r="2.188"></circle>
-                      <path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"></path>
-                    </svg>
+                    {welcome.linkedin}
                   </a>
                 </div>
               </div>
+
 
 
             </div>
@@ -103,11 +95,10 @@ const Welcome = () => {
             </div>
             <div className="welcome-home-img">
 
-              <img className="fire-img" src={process.env.PUBLIC_URL + "/fire-vertical.gif"} alt="fire" />
-              <img id="brain-up" className="coder-img brain vibrate" src={process.env.PUBLIC_URL + "/brain.png"} alt="Coder" />
-              <img className="coder-img up-image" src={process.env.PUBLIC_URL + "/coder-up.png"} alt="Coder" />
-              <img className="coder-img down-image" src={process.env.PUBLIC_URL + "/coder-down.png"} alt="Coder" />
-              {/* <img className="bubble-img" src={process.env.PUBLIC_URL + "/bubble-speech.png"} alt="Coder" /> */}
+              <img className="fire-img" src={process.env.PUBLIC_URL + "/fire-vertical.gif"} alt="Efecto de fuego animado de fondo" />
+              <img id="brain-up" className="coder-img brain vibrate" src={process.env.PUBLIC_URL + "/brain.png"} alt="Ilustración conceptual de cerebro con circuitos" />
+              <img className="coder-img up-image" src={process.env.PUBLIC_URL + "/coder-up.png"} alt="Ilustración de Carlos Lores - Frontend Developer" />
+              <img className="coder-img down-image" src={process.env.PUBLIC_URL + "/coder-down.png"} alt="Ilustración de desarrollador en su escritorio" />
             </div>
             {/* <div className="tech-stack"
               style={{ position: 'absolute', left: '-14px', bottom: '18px', zIndex: 3, background: 'rgb(212, 55, 47)', color: 'rgb(236, 234, 228)', padding: '12px 18px', borderRadius: '100px', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', animation: '0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 2.35s 1 normal both running cl-rise' }}>
@@ -136,3 +127,4 @@ const Welcome = () => {
 };
 
 export default Welcome;
+

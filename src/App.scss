@@ -33,7 +33,10 @@ html {
 
 html,
 body {
-  // overflow-x: hidden;
+  overflow-x: hidden;
+  // Unlike `hidden`, `clip` does not turn the page into an extra scroll
+  // container, which keeps viewport-fixed elements stable on mobile.
+  overflow-x: clip;
   background-color: rgb(236, 234, 228);
   color: rgb(58, 56, 47);
 
@@ -41,9 +44,6 @@ body {
     font-family: 'Work Sans';
   }
 
-  .red-text {
-    color: #d4372f;
-  }
 
   .btn-outline {
     border: 2px solid #d4372f;
@@ -52,6 +52,13 @@ body {
   .btn-primary {
     background: rgb(22, 21, 15);
     color: rgb(236, 234, 228);
+    align-items: center;
+    gap: 10px;
+    background: rgb(22, 21, 15);
+    color: rgb(236, 234, 228);
+    padding: 17px 30px;
+    border-radius: 100px;
+    font-size: 16px;
 
     &:hover {
       background-color: #d4372f;
@@ -67,12 +74,6 @@ body {
       background: rgb(22, 21, 15);
     }
   }
-
-
-
-
-
-
 
   &.light-mode {
     background-color: #e9f1f9;
@@ -98,15 +99,19 @@ body {
 }
 
 .container-padding {
-  padding-left: 6rem;
-  padding-right: 6rem;
+  padding-left: 96px;
+  padding-right: 96px;
 
-  @media(max-width: 768px) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 4rem;
+  @media(max-width: 1024px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 64px;
   }
 }
+
+.red-text {
+    color: rgb(212, 55, 47) !important;
+  }
 
 .btn {
   border-style: none;
@@ -114,16 +119,50 @@ body {
   border-radius: 2rem;
   cursor: pointer;
   z-index: 2;
+  max-height: 55px;
+}
+
+.pretitle {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(138, 133, 120);
+  position: sticky;
+  margin-bottom: 24px;
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: opacity 0.75s, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.75s;
 }
 
 .btn-primary {
   color: #fff;
 }
 
+.btn-tertiary {
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid rgb(195, 191, 180);
+  color: rgb(22, 21, 15);
+  padding: 17px 30px;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Work Sans", system-ui, sans-serif;
+  text-decoration: none;
+
+  &:hover {
+    border-color: rgb(22, 21, 15) !important;
+    background: rgb(226, 223, 214) !important;
+  }
+}
+
 .btn-outline {
   padding: 0.4rem 0.4rem;
   display: flex;
   text-align: center;
+
 }
 
 .grow {
@@ -152,6 +191,14 @@ body {
 
   .no-flex-mb,
   .no-row-mb {
+    display: block !important;
+  }
+}
+
+ @media(max-width: 1024px) {
+
+  .no-flex-tb,
+  .no-row-tb {
     display: block !important;
   }
 }

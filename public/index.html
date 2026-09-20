@@ -1,43 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- SEO Meta Tags Primarios -->
+    <title>Carlos Lores | Frontend Developer Madrid - React, Angular &amp; TypeScript</title>
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Portfolio profesional de Carlos Lores, Frontend Developer en Madrid. Especializado en React, Angular, TypeScript y desarrollo web de alto rendimiento."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta
+      name="keywords"
+      content="Carlos Lores, Frontend Developer, Madrid, React, Angular, TypeScript, Portfolio, Desarrollador Web, UI Engineer, JavaScript"
+    />
+    <meta name="author" content="Carlos Lores" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://carloslores.github.io/web-portfolio/" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Geolocalización -->
+    <meta name="geo.region" content="ES-MD" />
+    <meta name="geo.placename" content="Madrid" />
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://carloslores.github.io/web-portfolio/" />
+    <meta property="og:title" content="Carlos Lores | Frontend Developer Madrid" />
+    <meta
+      property="og:description"
+      content="Desarrollo el frontend de productos reales con React, Angular y TypeScript. Código limpio, alto rendimiento y cero plantillas."
+    />
+    <meta property="og:image" content="https://carloslores.github.io/web-portfolio/profile.jpg" />
+    <meta property="og:image:alt" content="Carlos Lores - Frontend Developer" />
+    <meta property="og:site_name" content="Carlos Lores Portfolio" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://carloslores.github.io/web-portfolio/" />
+    <meta name="twitter:title" content="Carlos Lores | Frontend Developer Madrid" />
+    <meta
+      name="twitter:description"
+      content="Desarrollo el frontend de productos reales con React, Angular y TypeScript. Código limpio, alto rendimiento y cero plantillas."
+    />
+    <meta name="twitter:image" content="https://carloslores.github.io/web-portfolio/profile.jpg" />
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Schema.org Datos Estructurados JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://carloslores.github.io/web-portfolio/#person",
+            "name": "Carlos Lores",
+            "jobTitle": "Frontend Developer",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Madrid",
+              "addressCountry": "ES"
+            },
+            "url": "https://carloslores.github.io/web-portfolio/",
+            "image": "https://carloslores.github.io/web-portfolio/profile.jpg",
+            "sameAs": [
+              "https://github.com/carloslores"
+            ],
+            "knowsAbout": [
+              "React",
+              "Angular",
+              "TypeScript",
+              "JavaScript",
+              "HTML5",
+              "CSS3",
+              "SASS",
+              "Web Performance",
+              "UI/UX"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://carloslores.github.io/web-portfolio/#website",
+            "url": "https://carloslores.github.io/web-portfolio/",
+            "name": "Carlos Lores Portfolio",
+            "description": "Portfolio profesional de Carlos Lores, Frontend Developer en Madrid.",
+            "author": {
+              "@id": "https://carloslores.github.io/web-portfolio/#person"
+            },
+            "inLanguage": ["es", "en"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
