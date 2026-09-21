@@ -288,11 +288,10 @@
   }
 }
 
-.dark-mode {
+
   h1 {
     font-family: Anton, sans-serif;
     font-weight: 400;
-    text-transform: lowercase;
     font-size: clamp(56px, 8.5vw, 200px);
     line-height: 0.86;
     letter-spacing: -0.015em;
@@ -330,7 +329,7 @@
       }
     }
   }
-}
+
 
 .light-mode {
   h1 {
@@ -368,11 +367,6 @@
       }
     }
   }
-}
-
-h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
 }
 
 h2 {
@@ -600,10 +594,7 @@ p {
     }
   }
 
-  .dark-mode h1 {
-    font-size: clamp(44px, 7vw, 90px);
-    line-height: 0.9;
-  }
+ 
 
   #marquee-clients {
     margin-top: 4rem;

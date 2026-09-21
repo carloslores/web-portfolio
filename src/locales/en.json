@@ -14,22 +14,22 @@
   },
   "welcome": {
     "preTitle": "Frontend Developer · Madrid · Available",
-    "titleLine1": "interfaces",
+    "titleLine1": "Interfaces",
     "titleLine2With": "with",
     "titleLine2Highlight": "character",
-    "description": "I'm Carlos Lores. I build the frontend for high-traffic products: car search engines, savings simulators, e-commerce. Clean code, purposeful animation, and zero templates.",
+    "description": "Hello, I'm Carlos Lores. I build frontend for high-traffic products: car search engines, savings simulators, e-commerce. Clean code, purposeful animation, and zero templates.",
     "ctaWork": "See my work",
     "github": "GitHub",
     "linkedin": "LinkedIn"
   },
    "marquee": {
-    "title": "Brands I have developed for"
+    "title": "Brands I have worked with"
   },
   "about": {
     "pretitle": "01 — About me",
-    "title": "who said frontend was just slicing designs?",
-    "paragraph1": "I work on real products, not demos. I have developed the pre-owned vehicle search engines for Lexus and Toyota, the savings and investment simulator for Mutua Madrileña, and digital components for El Corte Inglés. Real-traffic projects, real design, and real deadlines.",
-    "paragraph2": "I trained at Ironhack and haven't stopped tinkering since: React and Angular daily, TypeScript whenever possible, and an almost obsessive focus on making things feel fast. If something takes 300 ms extra, I notice.",
+    "title": "Who said frontend was just slicing designs?",
+    "paragraph1": "I work on real products, not demos. I have developed pre-owned vehicle search engines for Lexus and Toyota, the savings and investment simulator for Mutua Madrileña, and digital components for El Corte Inglés. Real-traffic projects, real design, and punctual deadlines.",
+    "paragraph2": "I trained at Ironhack and haven't stopped tinkering since: I revisited React and Angular in a daily basis, TypeScript whenever possible, and an almost obsessive focus on making things feel fast. If something takes more than necessary, I take notice.",
     "stats": {
       "projects": {
         "value": "6+",
@@ -54,7 +54,7 @@
   ],
   "projects": {
     "pretitle": "03 — Projects",
-    "titleLine1": "things I've",
+    "titleLine1": "Things I've",
     "titleLine2": "built",
     "items": [
       {
@@ -103,7 +103,7 @@
   },
   "howIWork": {
     "pretitle": "04 — stack",
-    "title": "why work with me",
+    "title": "Why you should hire me?",
     "reasons": [
       {
         "num": "01",
@@ -132,8 +132,8 @@
   },
   "contact": {
     "pretitle": "05 — contact",
-    "title": "let's talk",
-    "description": "I'm looking for a place where frontend is truly cared for. If you have a project in mind or an open role, drop me a message and let's talk.",
+    "title": "Get in touch with me",
+    "description": "I'm looking for a place where frontend is truly appreciated. If you have a project in mind or an open role, drop me a message and I'll be happy to talk about it.",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "copyright": "© 2026 Carlos Lores",

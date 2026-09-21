@@ -1,7 +1,7 @@
 #contact {
     background: #bb4c4c;
     color: rgb(246, 242, 234);
-    padding: 130px 40px 60px;
+    padding: 130px 96px 60px;
     margin-top: -1rem;
 
     @media (max-width: 1024px) {
@@ -25,10 +25,8 @@
 
         h2 {
             font-family: Anton, sans-serif;
-            font-weight: 400;
-            text-transform: lowercase;
-            font-size: clamp(52px, 12vw, 190px);
-            line-height: 0.82;
+            font-weight: 400;font-size: clamp(52px, 8vw, 190px);
+            line-height: .94;
             letter-spacing: -0.02em;
             margin: 0px;
         }

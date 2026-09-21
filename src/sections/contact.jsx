@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <section className="section--contact" id="contact">
 
-            <div className="container">
+            <div >
                 <div className="pretitle" data-reveal="1">
                     {contact.pretitle}
                 </div>
