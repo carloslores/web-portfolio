@@ -18,8 +18,8 @@ const Contact = () => {
                         {contact.description}
                     </p>
                         <div className="wrap-buttons">
-                            <a data-reveal="1" href="https://www.linkedin.com/in/carlos-lores-h/" target="_blank" rel="noreferrer" className="primary">{contact.linkedin} <span>↗</span></a>
-                            <a data-reveal="1" href="https://github.com/carloslores/" target="_blank" rel="noreferrer" className="secondary">{contact.github} <span>↗</span></a>
+                            <a data-reveal="1" href="mailto:clorezhh@gmail.com" target="_blank" rel="noreferrer" className="primary">{contact.email} <span>↗</span></a>
+                            <a data-reveal="1" href="https://www.linkedin.com/in/carlos-lores-h/" target="_blank" rel="noreferrer" className="secondary">{contact.linkedin} <span>↗</span></a>
                         </div>
                     </div>
                 </div>

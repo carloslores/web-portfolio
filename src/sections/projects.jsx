@@ -70,32 +70,73 @@ const Projects = () => {
   });
 
   useEffect(() => {
-    const timeoutIds = [];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            const timeoutId = setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, index * 200);
+    const elements = projectRefs.current.filter(Boolean);
+    const pendingElements = new Set(elements);
+    let animationFrameId = null;
 
-            timeoutIds.push(timeoutId);
-            observer.unobserve(entry.target);
+    const reveal = (element) => {
+      if (!pendingElements.has(element)) return;
+
+      element.classList.add("visible");
+      pendingElements.delete(element);
+      observer?.unobserve(element);
+    };
+
+    // IntersectionObserver callbacks can be coalesced while the browser is
+    // performing a smooth anchor scroll. This check also reveals cards that
+    // have already passed the viewport, so they can never remain hidden.
+    const revealReachedElements = () => {
+      animationFrameId = null;
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      for (const element of pendingElements) {
+        if (element.getBoundingClientRect().top < viewportHeight * 0.95) {
+          reveal(element);
+        }
+      }
+    };
+
+    const checkReachedElements = () => {
+      if (animationFrameId === null) {
+        animationFrameId = window.requestAnimationFrame(revealReachedElements);
+      }
+    };
+
+    let observer = null;
+
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach(reveal);
+      return undefined;
+    }
+
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+            reveal(entry.target);
           }
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0.01,
       }
     );
 
-    for (const el of projectRefs.current) {
-      if (el) observer.observe(el);
+    for (const element of elements) {
+      observer.observe(element);
     }
+
+    window.addEventListener("scroll", checkReachedElements, { passive: true });
+    window.addEventListener("resize", checkReachedElements);
+    checkReachedElements();
 
     return () => {
       observer.disconnect();
-      for (const id of timeoutIds) clearTimeout(id);
+      window.removeEventListener("scroll", checkReachedElements);
+      window.removeEventListener("resize", checkReachedElements);
+      if (animationFrameId !== null) {
+        window.cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
   return (
