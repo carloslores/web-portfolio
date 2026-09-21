@@ -29,7 +29,7 @@
     "pretitle": "01 — About me",
     "title": "Who said frontend was just slicing designs?",
     "paragraph1": "I work on real products, not demos. I have developed pre-owned vehicle search engines for Lexus and Toyota, the savings and investment simulator for Mutua Madrileña, and digital components for El Corte Inglés. Real-traffic projects, real design, and punctual deadlines.",
-    "paragraph2": "I trained at Ironhack and haven't stopped tinkering since: I revisited React and Angular in a daily basis, TypeScript whenever possible, and an almost obsessive focus on making things feel fast. If something takes more than necessary, I take notice.",
+    "paragraph2": "I trained at Ironhack and haven't stopped tinkering since: I revisited React and Angular in a daily basis, TypeScript whenever possible, and an almost obsessive focus on making things feel fast. If something takes more time than necessary, I take notice.",
     "stats": {
       "projects": {
         "value": "6+",
@@ -103,7 +103,7 @@
   },
   "howIWork": {
     "pretitle": "04 — stack",
-    "title": "Why you should hire me?",
+    "title": "Why should you hire me?",
     "reasons": [
       {
         "num": "01",
