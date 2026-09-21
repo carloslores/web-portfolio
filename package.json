@@ -1,6 +1,6 @@
 {
-  "homepage": "https://carloslores.github.io/web-portfolio",
-  "name": "web-portfolio",
+  "homepage": "https://carloslores.github.io/portfolio",
+  "name": "portfolio",
   "version": "1.0.0",
   "private": true,
   "dependencies": {

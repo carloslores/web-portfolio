@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carloslores.github.io/web-portfolio/sitemap.xml
+Sitemap: https://carloslores.github.io/portfolio/sitemap.xml

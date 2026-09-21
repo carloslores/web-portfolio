@@ -363,7 +363,6 @@
 
       img {
         mix-blend-mode: normal;
-        // width: 79%;
       }
     }
   }
@@ -514,7 +513,7 @@ p {
 
     .left {
       .pre-title {
-        margin: 1rem 0 0.75rem;
+        margin: 6rem 0 1.75rem;
       }
 
       p {
@@ -540,14 +539,14 @@ p {
         }
 
         &.up-image {
-          width: 145px;
+          width: 138px;
           top: -52px;
-          right: -120px;
+          right: -116px;
         }
 
         &.brain {
-          width: 135px;
-          top: -50px;
+          width: 133px;
+          top: -46px;
           right: -113px;
         }
       }
